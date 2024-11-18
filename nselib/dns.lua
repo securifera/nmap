@@ -106,21 +106,13 @@ local function sendPacketsUDP(data, host, port, timeout, cnt, multiple)
 
     local response
 
-    if ( multiple ) then
-      while(true) do
-        status, response = socket:receive()
-        if( not(status) ) then break end
-
-        local status, _, _, ip, _ = socket:get_info()
-        table.insert(responses, { data = response, peer = ip } )
-      end
-    else
+    repeat
       status, response = socket:receive()
-      if ( status ) then
-        local status, _, _, ip, _ = socket:get_info()
-        table.insert(responses, { data = response, peer = ip } )
-      end
-    end
+      if( not(status) ) then break end
+
+      local status, _, _, ip, _ = socket:get_info()
+      table.insert(responses, { data = response, peer = ip } )
+    until not multiple
 
     if (#responses>0) then
       socket:close()
@@ -145,8 +137,7 @@ local function sendPacketsTCP(data, host, port, timeout)
   local responses = {}
   socket:set_timeout(timeout)
   socket:connect(host, port)
-  -- add payload size we are assuming a minimum size here of 256?
-  local send_data = '\000' .. string.char(#data) .. data
+  local send_data = string.pack(">s2", data)
   socket:send(send_data)
   local response = ''
   local got_response = false

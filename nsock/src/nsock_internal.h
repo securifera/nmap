@@ -133,6 +133,8 @@ enum iod_state {
 
 /* ------------------- STRUCTURES ------------------- */
 
+extern struct timeval nsock_tod;
+
 struct readinfo {
   enum nsock_read_types read_type;
   /* num lines; num bytes; whatever (depends on read_type) */
@@ -260,8 +262,10 @@ struct niod {
    * remove this struct niod from the allocated list when necessary */
   gh_lnode_t nodeq;
 
-#define IOD_REGISTERED  0x01
-#define IOD_PROCESSED   0x02    /* internally used by engine_kqueue.c */
+#define IOD_REGISTERED  (1)
+#define IOD_PROCESSED   (1 << 1)    /* internally used by engine_kqueue.c */
+#define IOD_STDIN       (1 << 2)
+#define IOD_EOF         (1 << 3)
 
 #define IOD_PROPSET(iod, flag)  ((iod)->_flags |= (flag))
 #define IOD_PROPCLR(iod, flag)  ((iod)->_flags &= ~(flag))
@@ -457,6 +461,10 @@ struct nevent *event_new(struct npool *nsp, enum nse_type type, struct niod *iod
  * been cancelled */
 int nevent_delete(struct npool *nsp, struct nevent *nse, gh_list_t *event_list, gh_lnode_t *elem, int notify);
 
+/* Unlink an event from any lists and add it to free_events.
+ * Calls update_first_events. Resets timeout and removes event from expirables */
+int nevent_unref(struct npool *nsp, struct nevent *nse);
+
 /* Adjust various statistics, dispatches the event handler (if notify is
  * nonzero) and then deletes the event.  This function does NOT delete the event
  * from any lists it might be on (eg nsp->read_list etc.) nse->event_done
@@ -519,6 +527,18 @@ static inline struct nevent *lnode_nevent(gh_lnode_t *lnode) {
 static inline struct nevent *lnode_nevent2(gh_lnode_t *lnode) {
   return container_of(lnode, struct nevent, nodeq_pcap);
 }
+
+/* defined in nsock_core.c */
+void process_iod_events(struct npool *nsp, struct niod *nsi, int ev);
+void process_event(struct npool *nsp, gh_list_t *evlist, struct nevent *nse, int ev);
+void process_expired_events(struct npool *nsp);
+#if HAVE_PCAP
+int pcap_read_on_nonselect(struct npool *nsp);
+void iterate_through_pcap_events(struct npool *nsp);
+#endif
+
+/* defined in nsock_engines.c */
+struct io_engine *get_io_engine(void);
 
 #endif /* NSOCK_INTERNAL_H */
 

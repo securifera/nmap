@@ -172,20 +172,6 @@ static void force_operation(struct npool *nsp, struct nevent *nse);
 static void free_eov(struct npool *nsp, struct extended_overlapped *eov);
 static int map_faulty_errors(int err);
 
-/* defined in nsock_core.c */
-void process_iod_events(struct npool *nsp, struct niod *nsi, int ev);
-void process_event(struct npool *nsp, gh_list_t *evlist, struct nevent *nse, int ev);
-void process_expired_events(struct npool *nsp);
-#if HAVE_PCAP
-int pcap_read_on_nonselect(struct npool *nsp);
-void iterate_through_pcap_events(struct npool *nsp);
-#endif
-
-/* defined in nsock_event.c */
-void update_first_events(struct nevent *nse);
-
-
-extern struct timeval nsock_tod;
 
 int iocp_init(struct npool *nsp) {
   struct iocp_engine_info *iinfo;
@@ -432,15 +418,16 @@ void iterate_through_event_lists(struct npool *nsp) {
         free_eov(nsp, iinfo->eov);
         gh_list_prepend(&nsp->free_iods, &nsi->nodeq);
         iinfo->eov = NULL;
-            continue;
+        continue;
     }
 
     /* Here are more things that should be true */
     assert(iinfo->eov->nse_id == nse->id);
     assert(iinfo->eov == nse->eov);
 
-    if (!HasOverlappedIoCompleted((OVERLAPPED*)iinfo->eov))
+    if (!iinfo->eov->err && !HasOverlappedIoCompleted((OVERLAPPED*)iinfo->eov)) {
         continue;
+    }
 
     gh_list_t *evlist = NULL;
     int ev = 0;
@@ -475,16 +462,9 @@ void iterate_through_event_lists(struct npool *nsp) {
     process_event(nsp, evlist, nse, ev);
 
     if (nse->event_done) {
-      /* event is done, remove it from the event list and update IOD pointers
-      * to the first events of each kind */
-      update_first_events(nse);
-      gh_list_remove(evlist, &nse->nodeq_io);
-      gh_list_append(&nsp->free_events, &nse->nodeq_io);
-
-      if (nse->timeout.tv_sec)
-        gh_heap_remove(&nsp->expirables, &nse->expire);
       if (nse->eov)
           terminate_overlapped_event(nsp, nse);
+      nevent_unref(nsp, nse);
     }
     else {
         assert(nse->eov->forced_operation != IOCP_NOT_FORCED);
@@ -567,7 +547,7 @@ static void call_connect_overlapped(struct npool *nsp, struct nevent *nse) {
   int one = 1;
   SOCKET sock = nse->iod->sd;
   GUID guid = WSAID_CONNECTEX;
-  struct sockaddr_in addr;
+  struct sockaddr_storage addr;
   LPFN_CONNECTEX ConnectExPtr = NULL;
   struct iocp_engine_info *iinfo = (struct iocp_engine_info *)nse->iod->nsp->engine_data;
   struct extended_overlapped* eov = NULL;
@@ -603,11 +583,16 @@ static void call_connect_overlapped(struct npool *nsp, struct nevent *nse) {
   }
 
   /* ConnectEx doesn't automatically bind the socket */
-  memset(&addr, 0, sizeof(addr));
-  addr.sin_family = AF_INET;
-  addr.sin_addr.s_addr = INADDR_ANY;
-  addr.sin_port = 0;
   if (!nse->iod->locallen) {
+      memset(&addr, 0, sizeof(addr));
+      addr.ss_family = ss->ss_family;
+      if (addr.ss_family == AF_INET) {
+          ((struct sockaddr_in*)&addr)->sin_addr.s_addr = INADDR_ANY;
+          ((struct sockaddr_in*)&addr)->sin_port = 0;
+      } else if (addr.ss_family == AF_INET6) {
+          ((struct sockaddr_in6*)&addr)->sin6_addr = IN6ADDR_ANY_INIT;
+          ((struct sockaddr_in6*)&addr)->sin6_port = 0;
+      }
     ret = bind(sock, (SOCKADDR*)&addr, sizeof(addr));
     if (ret) {
       int err = socket_errno();

@@ -2519,9 +2519,11 @@ static void printAnyStats(UltraScanInfo *USI) {
   const HostScanStats *hss;
   struct ultra_timing_vals hosttm;
 
+  gettimeofday(&USI->now, NULL);
+
   /* Print debugging states for each host being scanned */
   if (o.debugging > 2) {
-    log_write(LOG_PLAIN, "**TIMING STATS** (%.4fs): IP, probes active/freshportsleft/retry_stack/outstanding/retranwait/onbench, cwnd/ssthresh/delay, timeout/srtt/rttvar/\n", o.TimeSinceStart());
+    log_write(LOG_PLAIN, "**TIMING STATS** (%.4fs): IP, probes active/freshportsleft/retry_stack/outstanding/retranwait/onbench, cwnd/ssthresh/delay, timeout/srtt/rttvar/\n", o.TimeSinceStart(&USI->now));
     log_write(LOG_PLAIN, "   Groupstats (%d/%d incomplete): %d/*/*/*/*/* %.2f/%d/* %d/%d/%d\n",
               USI->numIncompleteHosts(), USI->numInitialHosts(),
               USI->gstats->num_probes_active, USI->gstats->timing.cwnd,
@@ -2637,6 +2639,16 @@ static void processData(UltraScanInfo *USI) {
       probe = *probeI;
 
       unsigned long to_us = host->probeTimeout();
+#ifdef WIN32
+      if (USI->scantype == CONNECT_SCAN || USI->ptech.connecttcpscan) {
+        // Have to adjust to_us up because of TCP_MAXRT granularity
+        if (USI->has_tcp_maxrtms) {
+          to_us += (1000 - to_us % 1000); 
+        } else {
+          to_us += (1000000 - to_us % 1000000); 
+        }
+      }
+#endif
       long probe_age_us = TIMEVAL_SUBTRACT(USI->now, probe->sent);
       // give up completely after this long
       expire_us = host->probeExpireTime(probe, to_us);
@@ -2794,11 +2806,9 @@ void ultra_scan(std::vector<Target *> &Targets, const struct scan_lists *ports,
        memory consumption reasons */
     doAnyRetryStackRetransmits(&USI);
     doAnyNewProbes(&USI);
-    gettimeofday(&USI.now, NULL);
     // printf("TRACE: Finished doAnyNewProbes() at %.4fs\n", o.TimeSinceStartMS(&USI.now) / 1000.0);
     printAnyStats(&USI);
     waitForResponses(&USI);
-    gettimeofday(&USI.now, NULL);
     // printf("TRACE: Finished waitForResponses() at %.4fs\n", o.TimeSinceStartMS(&USI.now) / 1000.0);
     processData(&USI);
 
