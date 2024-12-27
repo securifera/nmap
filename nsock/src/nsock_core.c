@@ -537,43 +537,50 @@ void handle_write_result(struct npool *ms, struct nevent *nse, enum nse_status s
     if (nse->writeinfo.written_so_far > 0)
       assert(bytesleft > 0);
 #if HAVE_OPENSSL
-    if (iod->ssl)
+    if (iod->ssl) {
       res = SSL_write(iod->ssl, str, bytesleft);
+      if (res == bytesleft) {
+        nse->event_done = 1;
+        nse->status = NSE_STATUS_SUCCESS;
+      } else if (res > 0) {
+        // This should never happen unless we set SSL_MODE_ENABLE_PARTIAL_WRITE
+        nse->writeinfo.written_so_far += res;
+      } else { // res <= 0
+        int evclr, evset;
+        err = SSL_get_error(iod->ssl, res);
+        switch(err) {
+          case SSL_ERROR_WANT_READ:
+          case SSL_ERROR_WANT_WRITE:
+            evset = (err == SSL_ERROR_WANT_READ) ?
+              socket_count_read_inc(iod) :
+              socket_count_write_inc(iod);
+            evclr = socket_count_dec_ssl_desire(nse);
+            update_events(iod, ms, nse, evset, evclr);
+            nse->sslinfo.ssl_desire = err;
+            break;
+          default:
+            assert(err != SSL_ERROR_NONE);
+            /* Unexpected error */
+            nse->event_done = 1;
+            nse->status = NSE_STATUS_ERROR;
+            nse->errnum = EIO;
+            nsock_log_info("SSL_write() failed for reason %s on NSI %li",
+                ERR_error_string(err, NULL), iod->id);
+            break;
+        }
+      }
+    }
     else
 #endif
+    {
       res = ms->engine->io_operations->iod_write(ms, nse->iod->sd, str, bytesleft, 0, (struct sockaddr *)&nse->writeinfo.dest, (int)nse->writeinfo.destlen);
-    if (res == bytesleft) {
-      nse->event_done = 1;
-      nse->status = NSE_STATUS_SUCCESS;
-    } else if (res >= 0) {
-      nse->writeinfo.written_so_far += res;
-    } else {
-      assert(res == -1);
-      if (iod->ssl) {
-#if HAVE_OPENSSL
-        err = SSL_get_error(iod->ssl, res);
-        if (err == SSL_ERROR_WANT_READ) {
-          int evclr;
-
-          evclr = socket_count_dec_ssl_desire(nse);
-          socket_count_read_inc(iod);
-          update_events(iod, ms, nse, EV_READ, evclr);
-          nse->sslinfo.ssl_desire = err;
-        } else if (err == SSL_ERROR_WANT_WRITE) {
-          int evclr;
-
-          evclr = socket_count_dec_ssl_desire(nse);
-          socket_count_write_inc(iod);
-          update_events(iod, ms, nse, EV_WRITE, evclr);
-          nse->sslinfo.ssl_desire = err;
-        } else {
-          /* Unexpected error */
-          nse->event_done = 1;
-          nse->status = NSE_STATUS_ERROR;
-          nse->errnum = EIO;
-        }
-#endif
+      if (res == bytesleft) {
+        nse->event_done = 1;
+        nse->status = NSE_STATUS_SUCCESS;
+      } else if (res >= 0) {
+        nse->writeinfo.written_so_far += res;
       } else {
+        assert(res == -1);
         err = socket_errno();
         if (errcode_is_failure(err)) {
           nse->event_done = 1;
@@ -655,6 +662,7 @@ static int do_actual_read(struct npool *ms, struct nevent *nse) {
          * sockets, so peerlen is still sizeof(peer) and peer is junk. Instead,
          * only set this if it's not already set.
          */
+            && !IOD_PROPGET(iod, IOD_STDIN)
             && (iod->lastproto == IPPROTO_UDP || iod->peerlen == 0)
 #endif
         ) {
@@ -714,30 +722,34 @@ static int do_actual_read(struct npool *ms, struct nevent *nse) {
         return fs_length(&nse->iobuf) - startlen;
     }
 
-    if (buflen == -1) {
+    if (buflen <= 0) {
+      int evclr, evset;
       err = SSL_get_error(iod->ssl, buflen);
-      if (err == SSL_ERROR_WANT_READ) {
-        int evclr;
-
-        evclr = socket_count_dec_ssl_desire(nse);
-        socket_count_read_inc(iod);
-        update_events(iod, ms, nse, EV_READ, evclr);
-        nse->sslinfo.ssl_desire = err;
-      } else if (err == SSL_ERROR_WANT_WRITE) {
-        int evclr;
-
-        evclr = socket_count_dec_ssl_desire(nse);
-        socket_count_write_inc(iod);
-        update_events(iod, ms, nse, EV_WRITE, evclr);
-        nse->sslinfo.ssl_desire = err;
-      } else {
-        /* Unexpected error */
-        nse->event_done = 1;
-        nse->status = NSE_STATUS_ERROR;
-        nse->errnum = EIO;
-        nsock_log_info("SSL_read() failed for reason %s on NSI %li",
-                       ERR_error_string(err, NULL), iod->id);
-        return -1;
+      switch (err) {
+        case SSL_ERROR_WANT_READ:
+        case SSL_ERROR_WANT_WRITE:
+          evset = (err == SSL_ERROR_WANT_READ) ?
+            socket_count_read_inc(iod) :
+            socket_count_write_inc(iod);
+          evclr = socket_count_dec_ssl_desire(nse);
+          update_events(iod, ms, nse, evset, evclr);
+          nse->sslinfo.ssl_desire = err;
+          /* Not EOF! */
+          buflen = 1;
+          break;
+        case SSL_ERROR_ZERO_RETURN:
+          /* EOF because of close_notify */
+          buflen = 0;
+          break;
+        default:
+          assert(err != SSL_ERROR_NONE);
+          /* Unexpected error */
+          nse->event_done = 1;
+          nse->status = NSE_STATUS_ERROR;
+          nse->errnum = EIO;
+          nsock_log_info("SSL_read() failed for reason %s on NSI %li",
+              ERR_error_string(err, NULL), iod->id);
+          return -1;
       }
     }
 #endif /* HAVE_OPENSSL */
@@ -1005,7 +1017,9 @@ void process_event(struct npool *nsp, gh_list_t *evlist, struct nevent *nse, int
 
   nsock_log_debug_all("Processing event %lu (timeout in %ldms, done=%d)",
                       nse->id,
-                      (long)TIMEVAL_MSEC_SUBTRACT(nse->timeout, nsock_tod),
+                      nse->timeout.tv_sec
+                        ? (long)TIMEVAL_MSEC_SUBTRACT(nse->timeout, nsock_tod)
+                        : -1,
                       nse->event_done);
 
   if (!nse->event_done) {
@@ -1206,7 +1220,9 @@ const struct timeval *nsock_gettimeofday() {
 void nsock_pool_add_event(struct npool *nsp, struct nevent *nse) {
   nsock_log_debug("NSE #%lu: Adding event (timeout in %ldms)",
                   nse->id,
-                  (long)TIMEVAL_MSEC_SUBTRACT(nse->timeout, nsock_tod));
+                  nse->timeout.tv_sec
+                    ? (long)TIMEVAL_MSEC_SUBTRACT(nse->timeout, nsock_tod)
+                    : -1);
 
   nsp->events_pending++;
 
@@ -1214,7 +1230,7 @@ void nsock_pool_add_event(struct npool *nsp, struct nevent *nse) {
   if (nse->type == NSE_TYPE_READ && IOD_PROPGET(nse->iod, IOD_EOF)) {
     nse->eof = 1;
     nse->event_done = 1;
-    nse->status =  NSE_STATUS_EOF;
+    nse->status = NSE_STATUS_EOF;
   }
   /* It can happen that the event already completed. In which case we can
    * already deliver it, even though we're probably not inside nsock_loop(). */
@@ -1246,11 +1262,19 @@ void nsock_pool_add_event(struct npool *nsp, struct nevent *nse) {
       assert(nse->iod->sd >= 0);
       socket_count_read_inc(nse->iod);
       update_events(nse->iod, nsp, nse, EV_READ, EV_NONE);
-#if HAVE_OPENSSL
-      if (nse->iod->ssl)
-        nse->sslinfo.ssl_desire = SSL_ERROR_WANT_READ;
-#endif
       iod_add_event(nse->iod, nse);
+#if HAVE_OPENSSL
+      if (nse->iod->ssl) {
+        nse->sslinfo.ssl_desire = SSL_ERROR_WANT_READ;
+        /* If there's data pending, we have to process it now because it won't
+         * show up on the socket. */
+        if (SSL_pending(nse->iod->ssl)) {
+          process_event(nsp, NULL, nse, EV_READ);
+          if (nse->event_done)
+            nevent_unref(nsp, nse);
+        }
+      }
+#endif
       break;
 
     case NSE_TYPE_WRITE:
@@ -1258,6 +1282,8 @@ void nsock_pool_add_event(struct npool *nsp, struct nevent *nse) {
       socket_count_write_inc(nse->iod);
       update_events(nse->iod, nsp, nse, EV_WRITE, EV_NONE);
 #if HAVE_OPENSSL
+      /* Don't try SSL_write() right away. Since socket is nearly always ready for
+       * write, the event will be handled at the beginning of the next loop. */
       if (nse->iod->ssl)
         nse->sslinfo.ssl_desire = SSL_ERROR_WANT_WRITE;
 #endif

@@ -1220,7 +1220,7 @@ static void post_connect(nsock_pool nsp, nsock_iod iod)
 {
     /* Command to execute. */
     if (o.cmdexec) {
-        struct fdinfo info;
+        struct fdinfo info = { 0 };
 
         info.fd = nsock_iod_get_sd(iod);
 #ifdef HAVE_OPENSSL
@@ -1331,9 +1331,10 @@ static void read_socket_handler(nsock_pool nsp, nsock_event evt, void *data)
 #else
         Close(STDOUT_FILENO);
 #endif
-        /* In --recv-only mode or non-TCP mode, exit after EOF on the socket. */
-        if (o.proto != IPPROTO_TCP || (o.proto == IPPROTO_TCP && o.recvonly))
-            nsock_loop_quit(nsp);
+        /* For TCP, --keep-open means don't quit unless --recv-only */
+        if (!o.keepopen || o.proto != IPPROTO_TCP || o.recvonly) {
+          nsock_loop_quit(nsp);
+        }
         return;
     } else if (status == NSE_STATUS_ERROR) {
         if (!o.zerobyte||o.verbose)
