@@ -5,7 +5,7 @@
  *                                                                         *
  ***********************IMPORTANT NMAP LICENSE TERMS************************
  *
- * The Nmap Security Scanner is (C) 1996-2024 Nmap Software LLC ("The Nmap
+ * The Nmap Security Scanner is (C) 1996-2025 Nmap Software LLC ("The Nmap
  * Project"). Nmap is also a registered trademark of the Nmap Project.
  *
  * This program is distributed under the terms of the Nmap Public Source
@@ -264,6 +264,7 @@ int block_socket(int sd) {
 /* Use the SO_BINDTODEVICE sockopt to bind with a specific interface (Linux
    only). Pass NULL or an empty string to remove device binding. */
 int socket_bindtodevice(int sd, const char *device) {
+#ifdef SO_BINDTODEVICE
   char padded[sizeof(int)];
   size_t len;
 
@@ -281,7 +282,6 @@ int socket_bindtodevice(int sd, const char *device) {
     len = sizeof(padded);
   }
 
-#ifdef SO_BINDTODEVICE
   /* Linux-specific sockopt asking to use a specific interface. See socket(7). */
   if (setsockopt(sd, SOL_SOCKET, SO_BINDTODEVICE, device, len) < 0)
     return 0;

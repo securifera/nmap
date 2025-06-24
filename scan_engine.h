@@ -6,7 +6,7 @@
  *                                                                         *
  ***********************IMPORTANT NMAP LICENSE TERMS************************
  *
- * The Nmap Security Scanner is (C) 1996-2024 Nmap Software LLC ("The Nmap
+ * The Nmap Security Scanner is (C) 1996-2025 Nmap Software LLC ("The Nmap
  * Project"). Nmap is also a registered trademark of the Nmap Project.
  *
  * This program is distributed under the terms of the Nmap Public Source
@@ -68,7 +68,7 @@
 #include "scan_lists.h"
 #include "probespec.h"
 
-#include <dnet.h>
+#include "libnetutil/netutil.h"
 
 #include "timing.h"
 
@@ -626,7 +626,7 @@ public:
   const struct scan_lists *ports;
   int rawsd; /* raw socket descriptor */
   pcap_t *pd;
-  eth_t *ethsd;
+  netutil_eth_t *ethsd;
   u32 seqmask; /* This mask value is used to encode values in sequence
                   numbers.  It is set randomly in UltraScanInfo::Init() */
   u16 base_port;

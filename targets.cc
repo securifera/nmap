@@ -6,7 +6,7 @@
  *                                                                         *
  ***********************IMPORTANT NMAP LICENSE TERMS************************
  *
- * The Nmap Security Scanner is (C) 1996-2024 Nmap Software LLC ("The Nmap
+ * The Nmap Security Scanner is (C) 1996-2025 Nmap Software LLC ("The Nmap
  * Project"). Nmap is also a registered trademark of the Nmap Project.
  *
  * This program is distributed under the terms of the Nmap Public Source
@@ -77,10 +77,6 @@
 #include "output.h"
 
 extern NmapOps o;
-#ifdef WIN32
-/* from libdnet's intf-win32.c */
-extern "C" int g_has_npcap_loopback;
-#endif
 
 /* Conducts an ARP ping sweep of the given hosts to determine which ones
    are up on a local ethernet network */
@@ -135,21 +131,6 @@ static void hoststructfry(Target *hostbatch[], int nelem) {
 void returnhost(HostGroupState *hs) {
   assert(hs->next_batch_no > 0);
   hs->next_batch_no--;
-}
-
-/* Is the host passed as Target to be excluded? Much of this logic had
-   to be rewritten from wam's original code to allow for the objects */
-static int hostInExclude(struct sockaddr *checksock, size_t checksocklen,
-                  const struct addrset *exclude_group) {
-  if (exclude_group == NULL)
-    return 0;
-
-  if (checksock == NULL)
-    return 0;
-
-  if (addrset_contains(exclude_group,checksock))
-    return 1;
-  return 0;
 }
 
 /* Load an exclude list from a file for --excludefile. */
@@ -393,7 +374,7 @@ static Target *setup_target(const HostGroupState *hs,
         t->setSrcMACAddress(rnfo.ii.mac);
     }
 #ifdef WIN32
-    else if (g_has_npcap_loopback && rnfo.ii.device_type == devt_loopback) {
+    else if (o.have_pcap && rnfo.ii.device_type == devt_loopback) {
       if (o.spoofMACAddress())
         t->setSrcMACAddress(o.spoofMACAddress());
       else
@@ -430,7 +411,7 @@ bool HostGroupState::get_next_host(struct sockaddr_storage *ss, size_t *sslen, s
       }
     }
     /* Check exclude list. */
-    if (!hostInExclude((struct sockaddr *) ss, *sslen, exclude_group)) {
+    if (!addrset_contains(exclude_group, (const struct sockaddr *) ss)) {
       current_group.reject_last_host();
       break;
     }

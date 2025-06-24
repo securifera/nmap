@@ -3,7 +3,7 @@
  *                                                                         *
  ***********************IMPORTANT NMAP LICENSE TERMS************************
  *
- * The Nmap Security Scanner is (C) 1996-2024 Nmap Software LLC ("The Nmap
+ * The Nmap Security Scanner is (C) 1996-2025 Nmap Software LLC ("The Nmap
  * Project"). Nmap is also a registered trademark of the Nmap Project.
  *
  * This program is distributed under the terms of the Nmap Public Source
@@ -229,7 +229,7 @@ public:
   ~HostState();
   bool has_more_probes() const;
   bool is_finished() const;
-  bool send_next_probe(int rawsd, eth_t *ethsd);
+  bool send_next_probe(int rawsd, netutil_eth_t *ethsd);
   void next_ttl();
   void count_up();
   int cancel_probe(std::list<Probe *>::iterator it);
@@ -262,8 +262,8 @@ public:
 
   Probe(HostState *host, struct probespec pspec, u8 ttl);
   virtual ~Probe();
-  void send(int rawsd, eth_t *ethsd, struct timeval *now = NULL);
-  void resend(int rawsd, eth_t *ethsd, struct timeval *now = NULL);
+  void send(int rawsd, netutil_eth_t *ethsd, struct timeval *now = NULL);
+  void resend(int rawsd, netutil_eth_t *ethsd, struct timeval *now = NULL);
   bool is_timedout(struct timeval *now = NULL) const;
   bool may_resend() const;
   virtual unsigned char *build_packet(const struct sockaddr_storage *source,
@@ -292,7 +292,7 @@ public:
   double completion_fraction() const;
 
 private:
-  eth_t *ethsd;
+  netutil_eth_t *ethsd;
   int rawsd;
   pcap_t *pd;
   int num_active_probes;
@@ -348,7 +348,7 @@ bool HostState::is_finished() const {
     && active_probes.empty() && pending_resends.empty();
 }
 
-bool HostState::send_next_probe(int rawsd, eth_t *ethsd) {
+bool HostState::send_next_probe(int rawsd, netutil_eth_t *ethsd) {
   Probe *probe;
 
   /* Do a resend if possible. */
@@ -589,7 +589,7 @@ Probe::Probe(HostState *host, struct probespec pspec, u8 ttl) {
 Probe::~Probe() {
 }
 
-void Probe::send(int rawsd, eth_t *ethsd, struct timeval *now) {
+void Probe::send(int rawsd, netutil_eth_t *ethsd, struct timeval *now) {
   struct eth_nfo eth;
   struct eth_nfo *ethp;
   int decoy;
@@ -623,7 +623,7 @@ void Probe::send(int rawsd, eth_t *ethsd, struct timeval *now) {
   }
 }
 
-void Probe::resend(int rawsd, eth_t *ethsd, struct timeval *now) {
+void Probe::resend(int rawsd, netutil_eth_t *ethsd, struct timeval *now) {
   num_resends++;
   this->send(rawsd, ethsd, now);
 }
@@ -836,8 +836,6 @@ TracerouteState::TracerouteState(std::vector<Target *> &targets) {
   assert(targets.size() > 0);
 
   if ((o.sendpref & PACKET_SEND_ETH) && targets[0]->ifType() == devt_ethernet) {
-    /* No need to check for g_has_npcap_loopback on WIN32 because devt_loopback
-     * is checked earlier. */
     ethsd = eth_open_cached(targets[0]->deviceName());
     if (ethsd == NULL)
       fatal("dnet: failed to open device %s", targets[0]->deviceName());

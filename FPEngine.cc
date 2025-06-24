@@ -6,7 +6,7 @@
  *                                                                         *
  ***********************IMPORTANT NMAP LICENSE TERMS************************
  *
- * The Nmap Security Scanner is (C) 1996-2024 Nmap Software LLC ("The Nmap
+ * The Nmap Security Scanner is (C) 1996-2025 Nmap Software LLC ("The Nmap
  * Project"). Nmap is also a registered trademark of the Nmap Project.
  *
  * This program is distributed under the terms of the Nmap Public Source
@@ -76,8 +76,6 @@ extern NmapOps o;
 #ifdef WIN32
 /* Need DnetName2PcapName */
 #include "libnetutil/netutil.h"
-/* from libdnet's intf-win32.c */
-extern "C" int g_has_npcap_loopback;
 #endif
 
 #include <math.h>
@@ -141,7 +139,8 @@ void FPNetworkControl::init(const char *ifname, devtype iftype) {
   nmap_set_nsock_logger();
   nmap_adjust_loglevel(o.packetTrace());
 
-  nsock_pool_set_device(nsp, o.device);
+  if (*o.device)
+    nsock_pool_set_device(nsp, o.device);
 
   if (o.proxy_chain)
     nsock_pool_set_proxychain(this->nsp, o.proxy_chain);
@@ -159,7 +158,7 @@ void FPNetworkControl::init(const char *ifname, devtype iftype) {
   /* Obtain raw socket or check that we can obtain an eth descriptor. */
   if ((o.sendpref & PACKET_SEND_ETH) && (iftype == devt_ethernet
 #ifdef WIN32
-        || (g_has_npcap_loopback && iftype == devt_loopback)
+        || (o.have_pcap && iftype == devt_loopback)
 #endif
         ) && ifname != NULL) {
     /* We don't need to store the eth handler because FPProbes come with a
@@ -1810,7 +1809,7 @@ int FPHost6::build_probe_list() {
   /* ICMP Probe #3: Neighbor Solicitation. (only sent to on-link targets) */
   if (this->target_host->directlyConnected()
 #ifdef WIN32
-    && !(g_has_npcap_loopback && this->target_host->ifType() == devt_loopback)
+    && this->target_host->ifType() != devt_loopback
 #endif
     ) {
     ip6 = new IPv6Header();

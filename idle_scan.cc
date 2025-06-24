@@ -9,7 +9,7 @@
  *                                                                         *
  ***********************IMPORTANT NMAP LICENSE TERMS************************
  *
- * The Nmap Security Scanner is (C) 1996-2024 Nmap Software LLC ("The Nmap
+ * The Nmap Security Scanner is (C) 1996-2025 Nmap Software LLC ("The Nmap
  * Project"). Nmap is also a registered trademark of the Nmap Project.
  *
  * This program is distributed under the terms of the Nmap Public Source
@@ -107,10 +107,6 @@
 #include <stdio.h>
 
 extern NmapOps o;
-#ifdef WIN32
-/* from libdnet's intf-win32.c */
-extern "C" int g_has_npcap_loopback;
-#endif
 
 struct idle_proxy_info {
   Target host; /* contains name, IP, source IP, timing info, etc. */
@@ -605,7 +601,7 @@ static void initialize_idleproxy(struct idle_proxy_info *proxy, char *proxyName,
   /* First we need a raw socket ... */
   if ((o.sendpref & PACKET_SEND_ETH) && (proxy->host.ifType() == devt_ethernet
 #ifdef WIN32
-    || (g_has_npcap_loopback && proxy->host.ifType() == devt_loopback)
+    || (o.have_pcap && proxy->host.ifType() == devt_loopback)
 #endif
     )) {
     if (!setTargetNextHopMAC(&proxy->host))
