@@ -24,7 +24,7 @@ jobs:
           VERSION_LINE=$(grep '^VERSION' zenmap/zenmapCore/Version.py)
           VERSION=$(echo "$VERSION_LINE" | sed -E 's/.*"([0-9]+\.[0-9]+)".*/\1/')
           COUNT=$(git rev-list --count HEAD)
-          echo "VERSION=${VERSION}.${COUNT}" >> $GITHUB_ENV
+          echo "VERSION=${VERSION}.${COUNT}" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
         id: create_release
