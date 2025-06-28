@@ -1,0 +1,51 @@
+name: Build and Release Nmap Bundle
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # to create releases
+
+    steps:
+      # Checkout code
+      - uses: actions/checkout@v3
+
+      # Derive version from commit count
+      - name: Get commit count
+        id: get_version
+        run: |
+          COUNT=$(git rev-list --count HEAD)
+          echo "VERSION=0.1.${COUNT}" >> $GITHUB_ENV
+
+      # Build Docker image and extract tarball
+      - name: Build and extract bundle
+        run: |
+          docker build -t nmap-static-full --target packager .
+          CID=$(docker create nmap-static-full)
+          docker cp "$CID":/nmap-static-full.tar.gz .
+          docker rm "$CID"
+          mv nmap-static-full.tar.gz nmap-static-full-${VERSION}.tar.gz
+
+      # Create GitHub Release
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ env.VERSION }}
+          release_name: "Release ${{ env.VERSION }}"
+          draft: false
+          prerelease: false
+
+      # Upload the tarball as release asset
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: nmap-static-full-${{ env.VERSION }}.tar.gz
+          asset_name: nmap-static-full-${{ env.VERSION }}.tar.gz
+          asset_content_type: application/gzip
