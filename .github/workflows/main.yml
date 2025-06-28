@@ -1,4 +1,4 @@
-name: Build and Release Nmap Bundle
+name: Build and Release Nmap Bundle - amd64
 
 on:
   push:
