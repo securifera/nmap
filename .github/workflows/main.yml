@@ -15,12 +15,13 @@ jobs:
       # Checkout code
       - uses: actions/checkout@v3
 
-      # Derive version from commit count
-      - name: Get commit count
+      - name: Get version from Version.py and commit count
         id: get_version
         run: |
+          VERSION_LINE=$(grep '^VERSION' zenmap/zenmapCore/Version.py)
+          VERSION=$(echo "$VERSION_LINE" | sed -E 's/.*"([0-9]+\.[0-9]+)".*/\1/')
           COUNT=$(git rev-list --count HEAD)
-          echo "VERSION=0.1.${COUNT}" >> $GITHUB_ENV
+          echo "VERSION=${VERSION}.${COUNT}" >> $GITHUB_ENV
 
       # Build Docker image and extract tarball
       - name: Build and extract bundle
@@ -36,6 +37,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # auth token for release creation
           tag_name: ${{ env.VERSION }}
           release_name: "Release ${{ env.VERSION }}"
           draft: false
@@ -45,6 +47,7 @@ jobs:
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # auth token for asset upload
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: nmap-static-full-${{ env.VERSION }}.tar.gz
           asset_name: nmap-static-full-${{ env.VERSION }}.tar.gz
