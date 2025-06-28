@@ -1,5 +1,5 @@
 # ─── STAGE 1: Build Nmap from Official Release ─────────────────────────────
-FROM debian:bookworm-slim AS builder
+FROM ubuntu:24.04 AS builder
 
 # 1) Install only what's needed: compiler, libs, wget, bzip2
 RUN apt-get update \
@@ -12,6 +12,11 @@ RUN apt-get update \
       libssl-dev \
       libssh2-1-dev \
       liblua5.4-dev \
+      libnl-3-dev \
+      libnl-genl-3-dev \
+      libnl-route-3-dev \
+      libibverbs-dev \
+      librdmacm-dev \
       ca-certificates \
       git \
  && rm -rf /var/lib/apt/lists/*
@@ -34,11 +39,12 @@ RUN ./configure \
       --without-nping \
       --prefix=/usr/local \
       LDFLAGS="-static" \
+      LIBS="-lrdmacm -libverbs -lnl-3 -lnl-genl-3 -lnl-route-3" \
  && make -j"$(nproc)" \
  && make install DESTDIR=/dist    # install everything: bin, libexec (NSE), share, man… :contentReference[oaicite:1]{index=1}
 
 # ─── STAGE 2: Bundle into One tar.gz ───────────────────────────────────────
-FROM debian:bookworm-slim AS packager
+FROM ubuntu:24.04 AS packager
 
 # tar is already available, but ensure it
 RUN apt-get update \
