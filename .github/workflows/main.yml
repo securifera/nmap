@@ -36,8 +36,9 @@ jobs:
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # authenticate the release action
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # auth token for release creation
           tag_name: ${{ env.VERSION }}
           release_name: "Release ${{ env.VERSION }}"
           draft: false
@@ -46,8 +47,9 @@ jobs:
       # Upload the tarball as release asset
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # authenticate the upload
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # auth token for asset upload
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: nmap-static-full-${{ env.VERSION }}.tar.gz
           asset_name: nmap-static-full-${{ env.VERSION }}.tar.gz
