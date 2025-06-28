@@ -14,7 +14,8 @@ jobs:
     steps:
       # Checkout code
       - uses: actions/checkout@v3
-
+        with:
+          fetch-depth: 0
       - name: Get version from Version.py and commit count
         id: get_version
         run: |
@@ -30,7 +31,7 @@ jobs:
           CID=$(docker create nmap-static-full)
           docker cp "$CID":/nmap-static-full.tar.gz .
           docker rm "$CID"
-          mv nmap-static-full.tar.gz nmap-static-full-${VERSION}.tar.gz
+          mv nmap-static-full.tar.gz nmap-static-full-linux-amd64-${VERSION}.tar.gz
 
       # Create GitHub Release
       - name: Create Release
@@ -51,6 +52,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # authenticate the upload
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: nmap-static-full-${{ env.VERSION }}.tar.gz
-          asset_name: nmap-static-full-${{ env.VERSION }}.tar.gz
+          asset_path: nmap-static-full-linux-amd64-${{ env.VERSION }}.tar.gz
+          asset_name: nmap-static-full-linux-amd64-${{ env.VERSION }}.tar.gz
           asset_content_type: application/gzip
