@@ -180,6 +180,15 @@ end
 local function bestoption(port)
   assert(type(port) == 'table', "bestoption: port must be a table")
   assert(port.protocol, "bestoption: port table must have protocol field")
+
+  -- Check if ssl script arg is set
+  local args = nmap.registry.args
+  if args then
+    if args["ssl"] then
+      return "ssl","tcp" 
+    end
+  end
+
   if is_ssl(port) then
     return "ssl", port.protocol
   end
