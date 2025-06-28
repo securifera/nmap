@@ -1,0 +1,90 @@
+name: Build and Release Nmap Bundle
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      version: ${{ steps.get_version.outputs.version }}
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get version from Version.py and commit count
+        id: get_version
+        run: |
+          VERSION_LINE=$(grep '^VERSION' zenmap/zenmapCore/Version.py)
+          VERSION=$(echo "$VERSION_LINE" | sed -E 's/.*"([0-9]+\.[0-9]+)".*/\1/')
+          COUNT=$(git rev-list --count HEAD)
+          echo "VERSION=${VERSION}.${COUNT}" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.get_version.outputs.version }}
+          release_name: "Release ${{ steps.get_version.outputs.version }}"
+          draft: false
+          prerelease: false
+
+  build_amd64:
+    needs: create_release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build and extract AMD64 bundle
+        run: |
+          docker build -t nmap-static-full --target packager .
+          CID=$(docker create nmap-static-full)
+          docker cp "$CID":/nmap-static-full.tar.gz .
+          docker rm "$CID"
+          mv nmap-static-full.tar.gz nmap-static-full-${{ needs.create_release.outputs.version }}-linux_amd64.tar.gz
+
+      - name: Upload AMD64 asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create_release.outputs.upload_url }}
+          asset_path: nmap-static-full-${{ needs.create_release.outputs.version }}-linux_amd64.tar.gz
+          asset_name: nmap-static-full-${{ needs.create_release.outputs.version }}-linux_amd64.tar.gz
+          asset_content_type: application/gzip
+
+  build_arm64:
+    needs: create_release
+    runs-on: ubuntu-24.04-arm
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build and extract ARM64 bundle
+        run: |
+          docker build -t nmap-static-full --target packager .
+          CID=$(docker create nmap-static-full)
+          docker cp "$CID":/nmap-static-full.tar.gz .
+          docker rm "$CID"
+          mv nmap-static-full.tar.gz nmap-static-full-${{ needs.create_release.outputs.version }}-linux_arm64.tar.gz
+
+      - name: Upload ARM64 asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create_release.outputs.upload_url }}
+          asset_path: nmap-static-full-${{ needs.create_release.outputs.version }}-linux_arm64.tar.gz
+          asset_name: nmap-static-full-${{ needs.create_release.outputs.version }}-linux_arm64.tar.gz
+          asset_content_type: application/gzip
