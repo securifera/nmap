@@ -1176,8 +1176,10 @@ struct eth_nfo *HostOsScanStats::fill_eth_nfo(struct eth_nfo *eth, netutil_eth_t
   if (ethsd == NULL)
     return NULL;
 
-  memcpy(eth->srcmac, target->SrcMACAddress(), sizeof(eth->srcmac));
-  memcpy(eth->dstmac, target->NextHopMACAddress(), sizeof(eth->srcmac));
+  if (netutil_eth_datalink(ethsd) == DLT_EN10MB) {
+    memcpy(eth->srcmac, target->SrcMACAddress(), sizeof(eth->srcmac));
+    memcpy(eth->dstmac, target->NextHopMACAddress(), sizeof(eth->dstmac));
+  }
   eth->ethsd = ethsd;
   eth->devname[0] = '\0';
 
@@ -1335,25 +1337,13 @@ HostOsScan::HostOsScan(Target *t) {
   pd = NULL;
   rawsd = -1;
   ethsd = NULL;
+  int sendpref = o.sendpref;
 
-  if ((o.sendpref & PACKET_SEND_ETH) && (t->ifType() == devt_ethernet
-#ifdef WIN32
-    || (o.have_pcap && t->ifType() == devt_loopback)
-#endif
-    )) {
-    if ((ethsd = eth_open_cached(t->deviceName())) == NULL)
-      fatal("%s: Failed to open ethernet device (%s)", __func__, t->deviceName());
-    rawsd = -1;
-  } else {
-#ifdef WIN32
-    win32_fatal_raw_sockets(t->deviceName());
-#endif
-    rawsd = nmap_raw_socket();
-    if (rawsd < 0)
-      pfatal("socket troubles in %s", __func__);
-    unblock_socket(rawsd);
-    ethsd = NULL;
+  if (!raw_socket_or_eth(sendpref, t->deviceName(), t->ifType(), &rawsd, &ethsd)) {
+    fatal("%s: Failed to open raw socket or ethernet device", __func__);
   }
+  if (rawsd >= 0)
+    unblock_socket(rawsd);
 
   if (o.magic_port_set) {
     tcpPortBase = o.magic_port;

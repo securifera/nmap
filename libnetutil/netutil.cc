@@ -975,7 +975,7 @@ int netutil_eth_datalink(const netutil_eth_t *e) {
 #ifdef WIN32
 #define eth_handle(_eth) (_eth->pt)
 #define eth_handle_send pcap_inject
-#define eth_handle_close eth_close
+#define eth_handle_close pcap_close
 #else
 #define eth_handle(_eth) (_eth->ethsd)
 #define eth_handle_send eth_send
@@ -1019,7 +1019,20 @@ netutil_eth_t *netutil_eth_open(const char *device) {
   } while (0);
 #else
   eth_handle(e) = eth_open(device);
-  e->datalink = DLT_EN10MB;
+  if (eth_handle(e)) {
+    eth_addr_t ea;
+    /* No guarantees this is Ethernet. Dnet doesn't offer a way to check the L2
+     * protocol, so we'll try to get the Ethernet address to confirm.
+     */
+    if (0 == eth_get(eth_handle(e), &ea) && 0 != memcmp(&ea, "\0\0\0\0\0\0", 6)) {
+      e->datalink = DLT_EN10MB;
+    }
+    else {
+      // Not a data link we know about.
+      eth_handle_close(eth_handle(e));
+      eth_handle(e) = NULL;
+    }
+  }
 #endif
 
   if (eth_handle(e) == NULL) {
@@ -1086,6 +1099,109 @@ void eth_close_cached() {
     etht_cache_device_name[0] = '\0';
   }
   return;
+}
+
+static void netutil_perror(const char *msg) {
+  int err = socket_errno();
+  netutil_error("%s: (%d) %s", msg, err, socket_strerror(err));
+}
+
+/* Create a raw socket and do things that always apply to raw sockets:
+    * Set SO_BROADCAST.
+    * Set IP_HDRINCL.
+    * Bind to an interface with SO_BINDTODEVICE (if device is not NULL).
+   The socket is created with address family AF_INET, but may be usable for
+   AF_INET6, depending on the operating system. */
+int netutil_raw_socket(const char *device) {
+#ifdef WIN32
+  netutil_error("Windows does not have adequate raw socket support.");
+  return -1;
+#else
+  int rawsd;
+  int one = 1;
+
+  rawsd = socket(AF_INET, SOCK_RAW, IPPROTO_RAW);
+  if (rawsd < 0) {
+    netutil_perror("Couldn't open a raw socket. "
+#if defined(sun) && defined(__SVR4)
+        "In Solaris shared-IP non-global zones, this requires the PRIV_NET_RAWACCESS privilege. "
+#endif
+        "Error");
+    return -1;
+  }
+  if (setsockopt (rawsd, SOL_SOCKET, SO_BROADCAST, (const char *) &one, sizeof(int)) != 0) {
+    netutil_perror("setsockopt(SO_BROADCAST) failed");
+  }
+  sethdrinclude(rawsd);
+  if (device) {
+    socket_bindtodevice(rawsd, device);
+  }
+
+  return rawsd;
+#endif
+}
+
+int raw_socket_or_eth(int sendpref, const char *ifname, devtype iftype,
+    int *rawsd, netutil_eth_t **ethsd) {
+  assert(rawsd != NULL);
+  *rawsd = -1;
+  assert(ethsd != NULL);
+  *ethsd = NULL;
+
+#ifndef WIN32
+  /* In general, on Windows we need to use Ether headers.
+   * On other platforms, avoid it. */
+  if (iftype != devt_ethernet) {
+    sendpref = PACKET_SEND_IP;
+  }
+#endif
+
+  bool may_try_eth = ifname && !(sendpref & PACKET_SEND_IP_STRONG);
+  bool may_try_ip = !(sendpref & PACKET_SEND_ETH_STRONG);
+  bool try_eth = may_try_eth && (sendpref & PACKET_SEND_ETH);
+  bool try_ip = may_try_ip && (sendpref & PACKET_SEND_IP);
+
+  for (int i = 0; i < 2; i++) {
+    if (try_eth) {
+      try_eth = false;
+      may_try_eth = false;
+      try_ip = may_try_ip;
+
+      netutil_eth_t *e = eth_open_cached(ifname);
+      *ethsd = e;
+      if (e == NULL) {
+        netutil_error("dnet: failed to open device %s", ifname);
+      }
+      else if (!netutil_eth_can_send(e)) {
+        netutil_error("%s is not a supported device for sending.", ifname);
+        e = NULL;
+      }
+      else {
+        break;
+      }
+    }
+
+    if (try_ip) {
+      try_ip = false;
+      may_try_ip = false;
+      try_eth = may_try_eth;
+
+#ifdef WIN32
+      /* For Windows, don't even bother trying unless the caller insists, to
+       * avoid excessive error messages. */
+      if (!(sendpref & PACKET_SEND_IP_STRONG)) {
+        continue;
+      }
+#endif
+      int sd = netutil_raw_socket(ifname);
+      *rawsd = sd;
+      if (sd >= 0) {
+        break;
+      }
+    }
+  }
+
+  return (*ethsd != NULL || *rawsd >= 0) ? 1 : 0;
 }
 
 /* Takes a protocol number like IPPROTO_TCP, IPPROTO_UDP, IPPROTO_IP,

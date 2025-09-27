@@ -949,34 +949,16 @@ void UltraScanInfo::Init(std::vector<Target *> &Targets, const struct scan_lists
      aren't doing a TCP connect scan, or if we're doing a ping scan that
      requires it. */
   if (isRawScan()) {
-    if (ping_scan_arp || (ping_scan_nd && o.sendpref != PACKET_SEND_IP_STRONG) || ((o.sendpref & PACKET_SEND_ETH) &&
-        (Targets[0]->ifType() == devt_ethernet
-#ifdef WIN32
-        || (Targets[0]->ifType() == devt_loopback)
-#endif
-        ))) {
-      /* We'll send ethernet packets with dnet */
-      ethsd = eth_open_cached(Targets[0]->deviceName());
-      if (ethsd == NULL)
-        fatal("dnet: Failed to open device %s", Targets[0]->deviceName());
-      rawsd = -1;
-    } else {
-#ifdef WIN32
-      win32_fatal_raw_sockets(Targets[0]->deviceName());
-#endif
-      rawsd = nmap_raw_socket();
-      if (rawsd < 0)
-        pfatal("Couldn't open a raw socket. "
-#if defined(sun) && defined(__SVR4)
-        "In Solaris shared-IP non-global zones, this requires the PRIV_NET_RAWACCESS privilege. "
-#endif
-        "Error"
-        );
-      /* We do not want to unblock the socket since we want to wait
-      if kernel send buffers fill up rather than get ENOBUF, and
-      we won't be receiving on the socket anyway
-      unblock_socket(rawsd);*/
-      ethsd = NULL;
+    /* If eth failed, we can fall back to raw socket. The only exception is
+     * ARP ping, which needs Ethernet link. */
+    int sendpref = o.sendpref;
+    if (ping_scan_arp) {
+      assert(!(sendpref & PACKET_SEND_IP_STRONG));
+      sendpref = PACKET_SEND_ETH;
+    }
+    if (!raw_socket_or_eth(sendpref, Targets[0]->deviceName(), Targets[0]->ifType(),
+          &rawsd, &ethsd)) {
+      fatal("Couldn't open a raw socket or eth handle.");
     }
     /* Raw scan types also need to know the source IP. */
     Targets[0]->SourceSockAddr(&sourceSockAddr, NULL);
