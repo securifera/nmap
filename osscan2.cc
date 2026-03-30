@@ -6,7 +6,7 @@
  *                                                                         *
  ***********************IMPORTANT NMAP LICENSE TERMS************************
  *
- * The Nmap Security Scanner is (C) 1996-2025 Nmap Software LLC ("The Nmap
+ * The Nmap Security Scanner is (C) 1996-2026 Nmap Software LLC ("The Nmap
  * Project"). Nmap is also a registered trademark of the Nmap Project.
  *
  * This program is distributed under the terms of the Nmap Public Source
@@ -1176,12 +1176,11 @@ struct eth_nfo *HostOsScanStats::fill_eth_nfo(struct eth_nfo *eth, netutil_eth_t
   if (ethsd == NULL)
     return NULL;
 
-  if (netutil_eth_datalink(ethsd) == DLT_EN10MB) {
-    memcpy(eth->srcmac, target->SrcMACAddress(), sizeof(eth->srcmac));
-    memcpy(eth->dstmac, target->NextHopMACAddress(), sizeof(eth->dstmac));
+  eth = target->FillEthNfo(eth, ethsd);
+  if (eth) {
+    eth->ethsd = ethsd;
+    eth->devname[0] = '\0';
   }
-  eth->ethsd = ethsd;
-  eth->devname[0] = '\0';
 
   return eth;
 }
