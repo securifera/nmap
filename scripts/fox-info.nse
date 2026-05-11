@@ -51,6 +51,8 @@ author = "Stephen Hilt (Digital Bond)"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "version"}
 
+cpe = "cpe:2.3:a:tridium:niagara_fox:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.version_port_or_service({1911, 4911}, "niagara-fox", "tcp")
 

@@ -42,6 +42,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"version"}
 
+cpe = "cpe:2.3:a:ietf:rpc:*:*:*:*:*:*:*:*"
+
 -- Depend on rpcinfo so we don't grind something that's already known.
 dependencies = {"rpcinfo"}
 

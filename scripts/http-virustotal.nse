@@ -93,6 +93,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories={"safe", "malware", "external"}
 
+cpe = "cpe:2.3:a:virustotal:virustotal:*:*:*:*:*:*:*:*"
+
 
 local arg_apiKey = stdnse.get_script_args(SCRIPT_NAME .. ".apikey")
 local arg_upload = stdnse.get_script_args(SCRIPT_NAME .. ".upload") or false

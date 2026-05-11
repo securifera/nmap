@@ -42,6 +42,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "discovery"}
 
+cpe = "cpe:2.3:a:isc:bind:*:*:*:*:*:*:*:*"
+
 
 local arg_prefix = stdnse.get_script_args(SCRIPT_NAME .. ".prefix")
 local arg_mask = stdnse.get_script_args(SCRIPT_NAME .. ".mask")

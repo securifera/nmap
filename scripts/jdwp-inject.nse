@@ -31,6 +31,8 @@ author = "Aleksandar Nikolic"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"exploit","intrusive"}
 
+cpe = "cpe:2.3:a:oracle:jdk:*:*:*:*:*:*:*:*"
+
 portrule = function(host, port)
   -- JDWP will close the port if there is no valid handshake within 2
   -- seconds, Service detection's NULL probe detects it as tcpwrapped.

@@ -75,6 +75,8 @@ author = "Soldier of Fortran"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:ibm:zos:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service({175,2252}, "nje")
 
 local openNJEfmt = "\xd6\xd7\xc5\xd5@@@@%s\0\0\0\0%s\0\0\0\0\0"

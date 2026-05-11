@@ -16,6 +16,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"malware", "safe"}
 
+cpe = "cpe:2.3:a:ietf:smtp:*:*:*:*:*:*:*:*"
+
 portrule = function(host, port)
   return port.service == "smtp" and
     port.number ~= 25 and port.number ~= 465 and port.number ~= 587

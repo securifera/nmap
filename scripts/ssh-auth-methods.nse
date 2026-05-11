@@ -35,6 +35,8 @@ author = "Devin Bjelland"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"auth", "intrusive"}
 
+cpe = "cpe:2.3:a:ietf:ssh:*:*:*:*:*:*:*:*"
+
 local username = stdnse.get_script_args("ssh.user") or rand.random_alpha(5)
 portrule = shortport.ssh
 

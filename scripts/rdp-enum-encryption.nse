@@ -42,6 +42,8 @@ local string = require "string"
 
 categories = {"safe", "discovery"}
 
+cpe = "cpe:2.3:a:microsoft:remote_desktop_protocol:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(3389, "ms-wbt-server")
 
 local function fail (err) return stdnse.format_output(false, err) end

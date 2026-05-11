@@ -37,6 +37,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:citrix:metaframe_presentation_server:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.portnumber({8080,80,443}, "tcp")
 

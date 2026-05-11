@@ -67,6 +67,8 @@ author = "Toni Ruottu"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "safe", "version"}
 
+cpe = "cpe:2.3:a:idsoftware:quake_3:*:*:*:*:*:*:*:*"
+
 
 local function range(first, last)
   local list = {}

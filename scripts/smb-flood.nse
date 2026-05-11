@@ -40,6 +40,8 @@ author = "Ron Bowes"
 copyright = "Ron Bowes"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive","dos"}
+
+cpe = "cpe:2.3:a:microsoft:smb:*:*:*:*:*:*:*:*"
 dependencies = {"smb-brute"}
 
 local time_limit, arg_error = stdnse.parse_timespec(stdnse.get_script_args(SCRIPT_NAME .. '.timelimit') or '30m')

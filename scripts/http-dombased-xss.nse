@@ -38,6 +38,8 @@ http://www.webappsec.org/projects/articles/071105.shtml
 ---
 
 categories = {"intrusive", "exploit", "vuln"}
+
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
 author = "George Chatzisofroniou"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 

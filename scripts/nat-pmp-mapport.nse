@@ -47,6 +47,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:ietf:nat_pmp:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(5351, "nat-pmp", {"udp"} )
 

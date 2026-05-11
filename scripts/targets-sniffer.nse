@@ -37,6 +37,8 @@ argument or <code>-e</code> Nmap option to define which interface to use.
 
 author = "Nick Nikolaou"
 categories = {"broadcast", "discovery", "safe"}
+
+cpe = "cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 

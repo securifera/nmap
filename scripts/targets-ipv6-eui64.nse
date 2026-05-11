@@ -41,6 +41,8 @@ categories = {
   "discovery",
 }
 
+cpe = "cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*"
+
 local infile = stdnse.get_script_args(SCRIPT_NAME .. ".input")
 local subnets = stdnse.get_script_args("targets-ipv6-subnet") or "fe80::/64"
 

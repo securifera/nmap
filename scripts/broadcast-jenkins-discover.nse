@@ -32,6 +32,8 @@ author = "Brendan Coles"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "broadcast", "safe"}
 
+cpe = "cpe:2.3:a:jenkins:jenkins:*:*:*:*:*:*:*:*"
+
 prerule = function() return ( nmap.address_family() == "inet") end
 
 local arg_address = stdnse.get_script_args(SCRIPT_NAME .. ".address")

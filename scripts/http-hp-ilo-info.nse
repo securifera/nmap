@@ -40,6 +40,8 @@ author = "Rajeev R Menon"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe","discovery"}
 
+cpe = "cpe:2.3:a:hp:integrated_lights-out:*:*:*:*:*:*:*:*"
+
 local http = require "http"
 local slaxml = require "slaxml"
 local stdnse = require "stdnse"

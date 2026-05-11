@@ -17,6 +17,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "intrusive"}
 
+cpe = "cpe:2.3:a:ietf:dns:*:*:*:*:*:*:*:*"
+
 ---
 -- @usage
 -- nmap -sU -p 53 --script=dns-update --script-args=dns-update.hostname=foo.example.com,dns-update.ip=192.0.2.1 <target>

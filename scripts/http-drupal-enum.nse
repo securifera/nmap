@@ -82,6 +82,8 @@ categories = {
   "intrusive",
 }
 
+cpe = "cpe:2.3:a:drupal:drupal:*:*:*:*:*:*:*:*"
+
 local DEFAULT_SEARCH_LIMIT = 100
 local DEFAULT_MODULES_PATH = 'sites/all/modules/'
 local DEFAULT_THEMES_PATH = 'sites/all/themes/'

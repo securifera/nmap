@@ -82,6 +82,8 @@ author = "Paulino Calderon <calderon()websec.mx>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"exploit", "vuln"}
 
+cpe = "cpe:2.3:a:clamav:clamav:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(3310, "clam")
 
 local function shutdown(host, port)

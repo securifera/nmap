@@ -42,6 +42,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:actian:versant:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(5019, "versant", "tcp")
 
 local function fail(err) return stdnse.format_output(false, err) end

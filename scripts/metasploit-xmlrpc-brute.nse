@@ -30,6 +30,8 @@ author = "Vlatko Kosturjak"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:rapid7:metasploit:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(55553, "metasploit-xmlrpc", "tcp")
 

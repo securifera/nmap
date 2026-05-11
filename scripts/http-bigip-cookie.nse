@@ -39,6 +39,8 @@ author = "Seth Jackson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = { "discovery", "safe" }
 
+cpe = "cpe:2.3:a:f5:big_ip:*:*:*:*:*:*:*:*"
+
 portrule = shortport.http
 
 action = function(host, port)

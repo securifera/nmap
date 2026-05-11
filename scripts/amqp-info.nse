@@ -36,6 +36,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"default", "discovery", "safe", "version"}
 
+cpe = "cpe:2.3:a:ietf:amqp:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.version_port_or_service(5672, "amqp", "tcp", "open")
 

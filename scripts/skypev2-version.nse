@@ -17,6 +17,8 @@ author = "Brandon Enright"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"version"}
 
+cpe = "cpe:2.3:a:microsoft:skype:*:*:*:*:*:*:*:*"
+
 
 portrule = function(host, port)
   return (port.number == 80 or port.number == 443 or

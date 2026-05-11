@@ -52,6 +52,8 @@ author = {"niteesh", "alegen"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "broadcast", "safe"}
 
+cpe = "cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*"
+
 
 local arg_timeout = stdnse.parse_timespec(stdnse.get_script_args(SCRIPT_NAME .. '.timeout'))
 

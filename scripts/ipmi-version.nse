@@ -50,6 +50,8 @@ author = "Claudiu Perta <claudiu.perta@gmail.com>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:intel:ipmi:*:*:*:*:*:*:*:*"
+
 portrule = shortport.version_port_or_service(623, "asf-rmcp", "udp", {"open", "open|filtered"})
 
 local comma_separated = {

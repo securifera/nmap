@@ -23,6 +23,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"default", "safe"}
 
+cpe = "cpe:2.3:a:isc:bind:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.portnumber(53, "udp")
 

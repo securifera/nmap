@@ -44,6 +44,8 @@ hostnames)".
 
 categories = {"default", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:ietf:ipv6:*:*:*:*:*:*:*:*"
+
 author = "David Fifield"
 
 

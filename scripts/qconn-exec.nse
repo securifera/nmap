@@ -58,6 +58,8 @@ author = "Brendan Coles"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "exploit", "vuln"}
 
+cpe = "cpe:2.3:a:qnx:qconn:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service ({8000}, "qconn", {"tcp"})
 
 action = function( host, port )

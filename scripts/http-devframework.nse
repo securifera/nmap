@@ -39,6 +39,8 @@ Note that the <code>consumingDetect</code> callback will not take place only if
 ---
 
 categories = {"discovery", "intrusive"}
+
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
 author = "George Chatzisofroniou"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 

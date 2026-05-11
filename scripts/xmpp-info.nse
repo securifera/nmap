@@ -73,6 +73,8 @@ author = "Vasiliy Kulikov"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "safe", "discovery", "version"}
 
+cpe = "cpe:2.3:a:ietf:xmpp:*:*:*:*:*:*:*:*"
+
 
 local known_features = {
   ['starttls'] = true,

@@ -45,6 +45,8 @@ author = "Wong Wai Tuck"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "vuln"}
 
+cpe = "cpe:2.3:a:puppet:puppet:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service( {8140} , "puppet", "tcp", "open")
 
 -- dummy certificate signing request to sign

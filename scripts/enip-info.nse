@@ -54,6 +54,8 @@ author = "Stephen Hilt (Digital Bond)"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "version"}
 
+cpe = "cpe:2.3:a:odva:ethernet_ip:*:*:*:*:*:*:*:*"
+
 -- Function to define the portrule as per nmap standards
 -- IANA replaced the historical EtherNet/IP-2 name with EtherNet-IP-2
 portrule = shortport.version_port_or_service(44818, {"EtherNet-IP-2", "EtherNet/IP-2"}, {"tcp","udp"})

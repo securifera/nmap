@@ -16,6 +16,8 @@ author = "Michael Schierl <schierlm@gmx.de>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"version"}
 
+cpe = "cpe:2.3:a:oracle:jdk:*:*:*:*:*:*:*:*"
+
 ---
 -- @output
 -- PORT     STATE SERVICE VERSION

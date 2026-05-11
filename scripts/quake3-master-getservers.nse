@@ -31,6 +31,8 @@ author = "Toni Ruottu"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:idsoftware:quake_3:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service ({20110, 20510, 27950, 30710}, "quake3-master", {"udp"})
 postrule = function()
   return (nmap.registry.q3m_servers ~= nil)

@@ -60,6 +60,8 @@ http://www.gamers.org/dEngine/quake/QDP/qnp.html
 
 
 categories = {"default", "discovery", "safe", "version"}
+
+cpe = "cpe:2.3:a:idsoftware:quake:*:*:*:*:*:*:*:*"
 author = "Ulrik Haugen"
 copyright = "Linköpings universitet 2014, Ulrik Haugen 2014"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"

@@ -40,6 +40,8 @@ author = "Devin Bjelland"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"auth", "intrusive"}
 
+cpe = "cpe:2.3:a:ietf:ssh:*:*:*:*:*:*:*:*"
+
 local privatekeys = stdnse.get_script_args "ssh.privatekeys"
 local passphrases = stdnse.get_script_args "ssh.passphrases" or {}
 local usernames = stdnse.get_script_args "ssh.usernames"

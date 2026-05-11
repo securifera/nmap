@@ -40,6 +40,8 @@ author = "Alexander Rudakov"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = { "discovery", "intrusive" }
 
+cpe = "cpe:2.3:a:ietf:tftp:*:*:*:*:*:*:*:*"
+
 
 local REQUEST_ERROR = -1
 local FILE_FOUND = 1

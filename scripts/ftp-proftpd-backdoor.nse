@@ -33,6 +33,8 @@ author = "Mak Kolybabi"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"exploit", "intrusive", "malware", "vuln"}
 
+cpe = "cpe:2.3:a:proftpd:proftpd:*:*:*:*:*:*:*:*"
+
 
 local CMD_FTP = "HELP ACIDBITCHEZ"
 local CMD_SHELL = "id"

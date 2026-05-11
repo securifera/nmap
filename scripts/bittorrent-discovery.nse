@@ -46,6 +46,8 @@ author = "Gorjan Petrovski"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery","safe"}
 
+cpe = "cpe:2.3:a:bittorrent:bittorrent:*:*:*:*:*:*:*:*"
+
 
 prerule = function()
   if not stdnse.get_script_args(SCRIPT_NAME..".torrent") and

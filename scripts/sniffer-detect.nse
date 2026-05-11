@@ -21,6 +21,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"discovery", "intrusive"}
 
+cpe = "cpe:2.3:a:ieee:ethernet:*:*:*:*:*:*:*:*"
+
 -- okay, we're interested only in hosts that are on our ethernet lan
 hostrule = function(host)
   if nmap.address_family() ~= 'inet' then

@@ -57,6 +57,8 @@ author = "DINA-community"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "intrusive"}
 
+cpe = "cpe:2.3:a:fieldcomm:hart_ip:*:*:*:*:*:*:*:*"
+
 -- Function to define the portrule as per nmap standards
 portrule = shortport.port_or_service(5094, "hart-ip", "tcp")
 

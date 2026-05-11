@@ -16,6 +16,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"version"}
 
+cpe = "cpe:2.3:a:ietf:https:*:*:*:*:*:*:*:*"
+
 portrule = function (host, port)
   if (port.version and port.version.service_tunnel == "ssl") then
     -- If we already know it's SSL, bail.

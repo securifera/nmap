@@ -81,6 +81,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"discovery", "intrusive"}
 
+cpe = "cpe:2.3:a:wordpress:wordpress:*:*:*:*:*:*:*:*"
+
 local DEFAULT_SEARCH_LIMIT = 100
 local DEFAULT_PLUGINS_PATH = '/wp-content/plugins/'
 local WORDPRESS_API_URL = 'http://api.wordpress.org/plugins/info/1.0/'

@@ -52,6 +52,8 @@ author = {"Stephen Hilt", "Michael Toecker"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "version"}
 
+cpe = "cpe:2.3:a:ashrae:bacnet:*:*:*:*:*:*:*:*"
+
 
 --
 -- Function to define the portrule as per nmap standards

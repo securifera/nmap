@@ -62,6 +62,8 @@ categories = {
   "default",
 }
 
+cpe = "cpe:2.3:a:ietf:webdav:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.http
 

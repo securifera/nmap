@@ -23,6 +23,8 @@ author = "Claudio Criscione"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"version"}
 
+cpe = "cpe:2.3:a:docker:docker:*:*:*:*:*:*:*:*"
+
 portrule = shortport.version_port_or_service({2375, 2376}, {"docker", "docker-s"}, "tcp")
 
 action = function(host, port)

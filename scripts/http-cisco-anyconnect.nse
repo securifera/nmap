@@ -34,6 +34,8 @@ author = "Patrik Karlsson <patrik@cqure.net>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:cisco:anyconnect:*:*:*:*:*:*:*:*"
+
 portrule = function(host, port)
   return shortport.ssl(host, port) and shortport.http(host, port)
 end

@@ -35,6 +35,8 @@ author = "Patrik Karlsson <patrik@cqure.net>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"exploit","vuln"}
 
+cpe = "cpe:2.3:a:dlink:dlink_router:*:*:*:*:*:*:*:*"
+
 local http = require "http"
 local shortport = require "shortport"
 local string = require "string"

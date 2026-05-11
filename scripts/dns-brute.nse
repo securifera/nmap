@@ -79,6 +79,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"intrusive", "discovery"}
 
+cpe = "cpe:2.3:a:isc:bind:*:*:*:*:*:*:*:*"
+
 prerule = function()
   if not stdnse.get_script_args("dns-brute.domain") then
     stdnse.debug1("Skipping '%s' %s, 'dns-brute.domain' argument is missing.", SCRIPT_NAME, SCRIPT_TYPE)

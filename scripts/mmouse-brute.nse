@@ -33,6 +33,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:rpa_tech:mobile_mouse:*:*:*:*:*:*:*:*"
+
 
 local arg_timeout = stdnse.parse_timespec(stdnse.get_script_args(SCRIPT_NAME .. ".timeout"))
 arg_timeout = (arg_timeout or 5) * 1000

@@ -45,6 +45,8 @@ author = "Gorjan Petrovski"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery","external","safe"}
 
+cpe = "cpe:2.3:a:maxmind:geoip:*:*:*:*:*:*:*:*"
+
 local function get_db_file()
   return (stdnse.get_script_args(SCRIPT_NAME .. ".maxmind_db") or
     nmap.fetchfile("nselib/data/GeoLiteCity.dat"))

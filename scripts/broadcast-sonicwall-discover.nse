@@ -35,6 +35,8 @@ author = "Raphael Hoegger"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"broadcast", "safe"}
 
+cpe = "cpe:2.3:a:sonicwall:sonicwall:*:*:*:*:*:*:*:*"
+
 
 prerule = function()
   if not nmap.is_privileged() then

@@ -47,6 +47,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"auth", "intrusive"}
 
+cpe = "cpe:2.3:a:mit:kerberos:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service( 88, {"kerberos-sec"}, {"udp","tcp"}, {"open", "open|filtered"} )
 

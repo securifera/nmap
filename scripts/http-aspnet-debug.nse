@@ -31,6 +31,8 @@ author = "Josh Amishav-Zlatin"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = { "vuln", "discovery" }
 
+cpe = "cpe:2.3:a:microsoft:asp.net:*:*:*:*:*:*:*:*"
+
 portrule = shortport.http
 
 local function generate_http_debug_req(host, port, path)

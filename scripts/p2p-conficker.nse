@@ -87,6 +87,8 @@ copyright = "Ron Bowes"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default","safe"}
 
+cpe = "cpe:2.3:a:microsoft:windows:*:*:*:*:*:*:*:*"
+
 
 -- Max packet size
 local MAX_PACKET = 0x2000

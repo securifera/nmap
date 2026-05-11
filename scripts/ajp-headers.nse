@@ -29,6 +29,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*"
+
 local arg_path   = stdnse.get_script_args(SCRIPT_NAME .. '.path') or "/"
 
 action = function(host, port)

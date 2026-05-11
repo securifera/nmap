@@ -46,6 +46,8 @@ CICS User ID enumeration script for the CESL/CESN Login screen.
 author = "Philip Young aka Soldier of Fortran"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
+
+cpe = "cpe:2.3:a:ibm:cics:*:*:*:*:*:*:*:*"
 portrule = shortport.port_or_service({23,992}, "tn3270")
 
 Driver = {

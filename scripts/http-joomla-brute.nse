@@ -56,6 +56,8 @@ author = "Paulino Calderon <calderon@websec.mx>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:joomla:joomla:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.http
 

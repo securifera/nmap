@@ -45,6 +45,8 @@ author = "Aleksandar Nikolic"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive","safe"}
 
+cpe = "cpe:2.3:a:rapid7:metasploit:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(55553,"metasploit-msgrpc")
 local arg_username = stdnse.get_script_args(SCRIPT_NAME .. ".username")
 local arg_password = stdnse.get_script_args(SCRIPT_NAME .. ".password")

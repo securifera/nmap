@@ -23,6 +23,8 @@ author = {"Aleksandr Timorin", "Daniel Miller"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "intrusive"}
 
+cpe = "cpe:2.3:a:iec:60870-5-104:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(2404, "iec-104", "tcp")
 
 local function get_asdu(socket)

@@ -16,6 +16,8 @@ enough.]]
 
 categories = {"version"}
 
+cpe = "cpe:2.3:a:cccam:cccam:*:*:*:*:*:*:*:*"
+
 author = "David Fifield"
 
 local NUM_TRIALS = 2

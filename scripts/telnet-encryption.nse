@@ -31,6 +31,8 @@ References:
 
 categories = {"safe", "discovery"}
 
+cpe = "cpe:2.3:a:ietf:telnet:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(23, 'telnet')
 

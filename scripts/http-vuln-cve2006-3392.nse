@@ -40,6 +40,8 @@ author = "Paul AMAR <aos.paul@gmail.com>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"exploit","vuln","intrusive"}
 
+cpe = "cpe:2.3:a:webmin:webmin:*:*:*:*:*:*:*:*"
+
 portrule = shortport.portnumber({10000})
 
 action = function(host, port)

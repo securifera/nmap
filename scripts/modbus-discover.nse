@@ -51,6 +51,8 @@ author = "Alexander Rudakov"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "intrusive"}
 
+cpe = "cpe:2.3:a:modbus:modbus:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(502, "modbus")
 

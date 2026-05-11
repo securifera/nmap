@@ -48,6 +48,8 @@ author = "Marin Maržić"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = { "default", "discovery", "safe", "version" }
 
+cpe = "cpe:2.3:a:microsoft:freelancer:*:*:*:*:*:*:*:*"
+
 portrule = shortport.version_port_or_service({2302}, "freelancer", "udp")
 
 action = function(host, port)

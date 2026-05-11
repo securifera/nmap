@@ -4,6 +4,8 @@ author = "Andrew Orr"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "intrusive"}
 
+cpe = "cpe:2.3:a:allegrosoft:rompager:*:*:*:*:*:*:*:*"
+
 ---
 -- @see http-vuln-cve2013-6786.nse
 --

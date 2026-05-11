@@ -35,6 +35,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = { "default", "version", "safe" }
 
+cpe = "cpe:2.3:a:sap:maxdb:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.version_port_or_service(7210, "maxdb", "tcp")
 

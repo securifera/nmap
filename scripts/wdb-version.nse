@@ -39,6 +39,8 @@ author = "Daniel Miller"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "safe", "version", "discovery", "vuln"}
 
+cpe = "cpe:2.3:a:windriver:vxworks:*:*:*:*:*:*:*:*"
+
 
 -- WDB protocol information
 -- http://www.vxdev.com/docs/vx55man/tornado-api/wdbpcl/wdb.html

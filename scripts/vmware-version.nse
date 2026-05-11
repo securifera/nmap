@@ -21,6 +21,8 @@ author = "Alexey Tyurin"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe", "version"}
 
+cpe = "cpe:2.3:a:vmware:esxi:*:*:*:*:*:*:*:*"
+
 local http = require "http"
 local nmap = require "nmap"
 local shortport = require "shortport"

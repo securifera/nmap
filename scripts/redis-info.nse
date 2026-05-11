@@ -44,6 +44,8 @@ Retrieves information (such as version number and architecture) from a Redis key
 author = {"Patrik Karlsson", "Vasiliy Kulikov"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
+
+cpe = "cpe:2.3:a:redis:redis:*:*:*:*:*:*:*:*"
 dependencies = {"redis-brute"}
 
 

@@ -134,6 +134,8 @@ author = {"Paulino Calderon <calderon@websec.mx>", "nnposter"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "auth", "intrusive"}
 
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
+
 portrule = shortport.http
 
 ---

@@ -25,6 +25,8 @@ author = "Toni Ruottu"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"auth", "safe", "vuln"}
 
+cpe = "cpe:2.3:a:netbus:netbus:*:*:*:*:*:*:*:*"
+
 
 dependencies = {"netbus-version", "netbus-brute", "netbus-info"}
 

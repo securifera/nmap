@@ -36,6 +36,8 @@ Attempts to enumerate Windows user accounts through SNMP
 author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "auth", "safe"}
+
+cpe = "cpe:2.3:a:microsoft:windows:*:*:*:*:*:*:*:*"
 dependencies = {"snmp-brute"}
 
 -- Version 0.3

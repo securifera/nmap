@@ -43,6 +43,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:apple:daap:*:*:*:*:*:*:*:*"
+
 
 -- Version 0.2
 -- Created 01/14/2010 - v0.1 - created by Patrik Karlsson

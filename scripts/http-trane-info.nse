@@ -66,6 +66,8 @@ author = "Pedro Joaquin <pjoaquin()websec.mx>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "version", "safe"}
 
+cpe = "cpe:2.3:a:trane:tracer_sc:*:*:*:*:*:*:*:*"
+
 portrule = function(host, port)
   return (shortport.http(host,port) and nmap.version_intensity() >= 7)
 end

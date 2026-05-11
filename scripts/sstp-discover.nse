@@ -30,6 +30,8 @@ Current SSTP server implementations:
 author = "Niklaus Schiess <nschiess@adversec.com>"
 categories = {'discovery', 'default', 'safe'}
 
+cpe = "cpe:2.3:a:microsoft:sstp:*:*:*:*:*:*:*:*"
+
 ---
 --@output
 -- 443/tcp open  https

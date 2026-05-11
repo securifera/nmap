@@ -43,6 +43,8 @@ categories = {
   'intrusive',
 }
 
+cpe = "cpe:2.3:a:ietf:ssh:*:*:*:*:*:*:*:*"
+
 portrule = shortport.ssh
 
 local username = stdnse.get_script_args 'ssh-run.username'

@@ -31,6 +31,8 @@ author = "Ron Bowes"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "safe"}
 
+cpe = "cpe:2.3:a:vmware:esxi:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service({80, 443, 8222,8333}, {"http", "https"})
 

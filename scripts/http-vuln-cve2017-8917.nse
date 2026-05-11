@@ -84,6 +84,8 @@ author = "Wong Wai Tuck"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "intrusive"}
 
+cpe = "cpe:2.3:a:joomla:joomla:*:*:*:*:*:*:*:*"
+
 local REG_EXP_SUCCESS = {"XPATH syntax error: &#039;(.-)&#039;",
   "XPATH syntax error: '(.-)'"}
 

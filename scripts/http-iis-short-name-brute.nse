@@ -49,6 +49,8 @@ author = {"Jesper Kueckelhahn", "Paulino Calderon"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:microsoft:iis:*:*:*:*:*:*:*:*"
+
 local stdnse    = require "stdnse"
 local shortport = require "shortport"
 local table = require "table"

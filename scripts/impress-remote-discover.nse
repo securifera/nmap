@@ -43,6 +43,8 @@ author = "Jer Hiebert"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:libreoffice:impress:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(1599, "impress-remote", "tcp")
 
 local function parse_args()

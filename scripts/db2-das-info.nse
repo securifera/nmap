@@ -66,6 +66,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"safe", "discovery", "version"}
 
+cpe = "cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:*"
+
 
 --- Research Notes:
 --

@@ -29,6 +29,8 @@ author = "Hani Benhabiles"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe", "auth", "vuln"}
 
+cpe = "cpe:2.3:a:redhat:jboss_application_server:*:*:*:*:*:*:*:*"
+
 local http = require "http"
 local shortport = require "shortport"
 local stdnse = require "stdnse"

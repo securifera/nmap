@@ -60,6 +60,8 @@ author = {"Vlatko Kosturjak", "Ron Bowes"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"exploit", "intrusive", "malware", "vuln"}
 
+cpe = "cpe:2.3:a:unrealircd:unrealircd:*:*:*:*:*:*:*:*"
+
 
 portrule = irc.portrule
 

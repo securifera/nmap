@@ -79,6 +79,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "default", "safe", "version"}
 
+cpe = "cpe:2.3:a:ietf:rpc:*:*:*:*:*:*:*:*"
+
 
 -- don't match "rpcbind" because that's what version scan labels any RPC service
 portrule = function(host, port)

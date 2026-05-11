@@ -53,6 +53,8 @@ author = {"Paul AMAR <aos.paul@gmail.com>", "Ron Bowes"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"exploit","vuln","intrusive"}
 
+cpe = "cpe:2.3:a:zimbra:collaboration_suite:*:*:*:*:*:*:*:*"
+
 portrule = shortport.http
 
 -- function to escape specific characters

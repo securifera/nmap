@@ -685,6 +685,7 @@ do
       categories = rawget(env, "categories"),
       author = rawget(env, "author"),
       license = rawget(env, "license"),
+      cpe = rawget(env, "cpe"),
       dependencies = rawget(env, "dependencies"),
       threads = {},
       -- Make sure that the following are boolean types.
@@ -1189,6 +1190,15 @@ local function script_help_normal(chosen_scripts)
     log_write_raw("stdout", "\n");
     log_write_raw("stdout", format("%s\n", script.id));
     log_write_raw("stdout", format("Categories: %s\n", concat(script.categories, " ")));
+    if script.cpe then
+      if type(script.cpe) == "table" then
+        for _, c in ipairs(script.cpe) do
+          log_write_raw("stdout", format("CPE: %s\n", c));
+        end
+      else
+        log_write_raw("stdout", format("CPE: %s\n", script.cpe));
+      end
+    end
     log_write_raw("stdout", format("%s\n", nsedoc_url(script.id)));
     if script.description then
       log_write_raw("stdout", format_nsedoc(script.description, "  "));

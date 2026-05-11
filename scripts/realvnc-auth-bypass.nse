@@ -32,6 +32,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 -- |_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2369
 categories = {"auth", "safe", "vuln"}
 
+cpe = "cpe:2.3:a:realvnc:vnc:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service({5900,5901,5902}, "vnc")
 

@@ -62,6 +62,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:ietf:dns:*:*:*:*:*:*:*:*"
+
 
 local arg_domain = stdnse.get_script_args(SCRIPT_NAME .. ".domain")
 local arg_filter = stdnse.get_script_args(SCRIPT_NAME .. ".filter")

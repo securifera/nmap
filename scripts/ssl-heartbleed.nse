@@ -41,6 +41,8 @@ The code is based on the Python script ssltest.py authored by Katie Stafford (ka
 author = "Patrik Karlsson <patrik@cqure.net>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = { "vuln", "safe" }
+
+cpe = "cpe:2.3:a:openssl:openssl:*:*:*:*:*:*:*:*"
 dependencies = {"https-redirect"}
 
 -- TLSv1.3 was not implemented by affected versions of OpenSSL.

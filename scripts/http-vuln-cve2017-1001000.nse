@@ -66,6 +66,8 @@ author = "Vinamra Bhatia"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "safe"}
 
+cpe = "cpe:2.3:a:wordpress:wordpress:*:*:*:*:*:*:*:*"
+
 portrule = shortport.http
 
 action = function(host, port)

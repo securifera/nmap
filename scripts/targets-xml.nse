@@ -31,6 +31,8 @@ Address type (IPv4 or IPv6) is determined according to whether -6 is specified t
 
 author = "Daniel Miller"
 categories = {"safe"}
+
+cpe = "cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 local filename = stdnse.get_script_args(SCRIPT_NAME .. ".iX")

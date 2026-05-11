@@ -36,6 +36,8 @@ author = "Daniel Miller"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = { "safe" }
 
+cpe = "cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*"
+
 -- the hostrule iterates over open ports for the host
 hostrule = function() return true end
 

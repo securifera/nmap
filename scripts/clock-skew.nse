@@ -63,6 +63,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"default", "safe"}
 
+cpe = "cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*"
+
 hostrule = function(host)
   return host.registry.datetime_skew and #host.registry.datetime_skew > 0
 end

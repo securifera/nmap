@@ -43,6 +43,8 @@ author = "Jesper Kueckelhahn"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "safe", "version"}
 
+cpe = "cpe:2.3:a:ietf:ike:*:*:*:*:*:*:*:*"
+
 portrule = shortport.version_port_or_service(500, "isakmp", "udp")
 
 

@@ -124,6 +124,8 @@ author = {"Brendan Coles", "Gyanendra Mishra"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:ganglia:ganglia:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service ({8649,8651}, "ganglia", {"tcp"})
 
 local function set_name_value(name)

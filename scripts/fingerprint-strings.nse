@@ -53,6 +53,8 @@ from the nmap-service-probes file, not from the response.
 author = "Daniel Miller"
 categories = {"version"}
 
+cpe = "cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*"
+
 portrule = function (host, port)
   -- Run for any port that has a service fingerprint indicating an unknown service
   -- OK to run at any version intensity (e.g. not checking nmap.version_intensity)

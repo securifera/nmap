@@ -52,6 +52,8 @@ author = "John R. Bond"
 license = "Simplified (2-clause) BSD license--See https://nmap.org/svn/docs/licenses/BSD-simplified"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:isc:bind:*:*:*:*:*:*:*:*"
+
 
 local argNS = stdnse.get_script_args(SCRIPT_NAME .. '.nameserver')
 local argDomain = stdnse.get_script_args(SCRIPT_NAME .. '.domain')

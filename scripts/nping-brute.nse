@@ -30,6 +30,8 @@ author = "Toni Ruottu"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"brute", "intrusive"}
 
+cpe = "cpe:2.3:a:nmap:nping:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(9929, "nping-echo")
 

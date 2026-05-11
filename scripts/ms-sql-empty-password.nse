@@ -59,6 +59,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"auth","intrusive"}
 
+cpe = "cpe:2.3:a:microsoft:sql_server:*:*:*:*:*:*:*:*"
+
 dependencies = {"broadcast-ms-sql-discover"}
 
 local function test_credentials( instance, helper, username, password )

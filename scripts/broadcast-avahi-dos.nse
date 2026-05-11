@@ -41,6 +41,8 @@ author = "Djalal Harouni"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"broadcast", "dos", "intrusive", "vuln"}
 
+cpe = "cpe:2.3:a:avahi:avahi:*:*:*:*:*:*:*:*"
+
 
 prerule = function() return true end
 

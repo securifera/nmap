@@ -16,6 +16,8 @@ Further information:
 author = {"Niklaus Schiess <nschiess@ernw.de>", "Dominik Schneider <dschneider@ernw.de>"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "safe"}
+
+cpe = "cpe:2.3:a:knx:knx:*:*:*:*:*:*:*:*"
 portrule = shortport.port_or_service(3671, "efcp", "udp")
 
 ---

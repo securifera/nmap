@@ -72,6 +72,8 @@ installed with the service.
 author = "Gorjan Petrovski"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "safe"}
+
+cpe = "cpe:2.3:a:backorifice:backorifice:*:*:*:*:*:*:*:*"
 dependencies = {"backorifice-brute"}
 
 

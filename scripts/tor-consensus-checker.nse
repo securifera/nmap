@@ -26,6 +26,8 @@ author = "Jiayi Ye"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"external", "safe"}
 
+cpe = "cpe:2.3:a:torproject:tor:*:*:*:*:*:*:*:*"
+
 -- from Tor 0.2.9 auth_dirs.inc
 local dir_authorities = {
   { ip = "128.31.0.39", port = 9131},

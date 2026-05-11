@@ -56,6 +56,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"vuln", "safe"}
 
+cpe = "cpe:2.3:a:openssl:openssl:*:*:*:*:*:*:*:*"
+
 dependencies = {"ssl-enum-ciphers", "https-redirect"}
 
 -- Test this many ciphersuites at a time.

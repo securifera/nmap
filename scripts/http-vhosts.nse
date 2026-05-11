@@ -57,6 +57,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = { "discovery", "intrusive" }
 
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
+
 local arg_domain = stdnse.get_script_args(SCRIPT_NAME..".domain")
 local arg_path = stdnse.get_script_args(SCRIPT_NAME..".path") or "/"
 local arg_filelist = stdnse.get_script_args(SCRIPT_NAME..'.filelist')

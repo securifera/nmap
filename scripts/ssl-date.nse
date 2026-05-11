@@ -37,6 +37,8 @@ Original idea by Jacob Appelbaum and his TeaTime and tlsdate tools:
 author = {"Aleksandar Nikolic", "nnposter"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe", "default"}
+
+cpe = "cpe:2.3:a:openssl:openssl:*:*:*:*:*:*:*:*"
 dependencies = {"https-redirect"}
 
 portrule = function(host, port)

@@ -104,6 +104,8 @@ The output is intended to resemble the output of <code>ls</code>.
 author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
+
+cpe = "cpe:2.3:a:apple:afp:*:*:*:*:*:*:*:*"
 dependencies = {"afp-brute"}
 
 portrule = shortport.port_or_service(548, {"afp"})

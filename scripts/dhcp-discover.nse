@@ -104,6 +104,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:ietf:dhcp:*:*:*:*:*:*:*:*"
+
 
 -- We want to run against a specific host if UDP/67 is open
 function portrule(host, port)

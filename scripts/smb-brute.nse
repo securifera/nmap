@@ -108,6 +108,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:microsoft:smb:*:*:*:*:*:*:*:*"
+
 
 ---The maximum number of usernames to check (can be modified with smblimit argument)
 -- The limit exists because domains may have hundreds of thousands of accounts,

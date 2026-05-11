@@ -34,6 +34,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"discovery", "vuln", "safe"}
 
+cpe = "cpe:2.3:a:ietf:irc:*:*:*:*:*:*:*:*"
+
 ---
 -- @usage
 -- nmap -p 6667 --script=irc-botnet-channels <target>

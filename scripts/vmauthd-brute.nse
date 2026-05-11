@@ -27,6 +27,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"brute", "intrusive"}
 
+cpe = "cpe:2.3:a:vmware:vmware_authentication_daemon:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(902, {"ssl/vmware-auth", "vmware-auth"}, "tcp")
 

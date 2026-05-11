@@ -29,6 +29,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:oracle:mysql:*:*:*:*:*:*:*:*"
+
 -- Version 0.5
 -- Created 01/15/2010 - v0.1 - created by Patrik Karlsson <patrik@cqure.net>
 -- Revised 01/23/2010 - v0.2 - revised by Patrik Karlsson, changed username, password loop, added credential storage for other mysql scripts, added timelimit

@@ -35,6 +35,8 @@ author = "Paulino Calderon"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe", "discovery", "default"}
 
+cpe = "cpe:2.3:a:microsoft:smb:*:*:*:*:*:*:*:*"
+
 hostrule = function(host)
   return smb.get_port(host) ~= nil
 end

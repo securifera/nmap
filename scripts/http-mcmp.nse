@@ -32,6 +32,8 @@ author = "Frank Spierings"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe", "discovery"}
 
+cpe = "cpe:2.3:a:jboss:mod_cluster:*:*:*:*:*:*:*:*"
+
 local stdnse = require "stdnse"
 local shortport = require "shortport"
 local http = require "http"

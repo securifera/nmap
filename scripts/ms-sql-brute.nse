@@ -77,6 +77,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"brute", "intrusive"}
 
+cpe = "cpe:2.3:a:microsoft:sql_server:*:*:*:*:*:*:*:*"
+
 dependencies = {"broadcast-ms-sql-discover", "ms-sql-empty-password"}
 
 --- Returns formatted output for the given instance

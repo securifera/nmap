@@ -70,6 +70,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"external", "safe"}
 
+cpe = "cpe:2.3:a:isc:bind:*:*:*:*:*:*:*:*"
+
 
 -- The script can be run either as a host- or pre-rule
 hostrule = function() return true end

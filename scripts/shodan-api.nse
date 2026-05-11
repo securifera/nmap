@@ -17,6 +17,8 @@ author = "Glenn Wilkinson <glenn@sensepost.com> (idea: Charl van der Walt <charl
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe", "external"}
 
+cpe = "cpe:2.3:a:shodan:shodan:*:*:*:*:*:*:*:*"
+
 description = [[
 Queries Shodan API for given targets and produces similar output to
 a -sV nmap scan. The ShodanAPI key can be set with the 'apikey' script

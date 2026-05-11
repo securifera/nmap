@@ -49,6 +49,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"external", "discovery"}
 
+cpe = "cpe:2.3:a:sectigo:crtsh:*:*:*:*:*:*:*:*"
+
 local io = require "io"
 local http = require "http"
 local json = require "json"

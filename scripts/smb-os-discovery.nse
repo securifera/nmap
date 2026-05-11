@@ -78,6 +78,8 @@ will speed up the script on targets that do not allow guest access.
 author = "Ron Bowes"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "safe"}
+
+cpe = "cpe:2.3:a:microsoft:windows:*:*:*:*:*:*:*:*"
 dependencies = {"smb-brute"}
 
 

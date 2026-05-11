@@ -62,6 +62,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"intrusive", "discovery"}
 
+cpe = "cpe:2.3:a:isc:bind:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(53, "domain", "udp")
 
 local DOMAINS = {}

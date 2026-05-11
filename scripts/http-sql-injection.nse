@@ -28,6 +28,8 @@ author = {"Eddie Bell", "Piotr Olma"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "vuln"}
 
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
+
 ---
 -- @see http-vuln-cve2014-3704.nse
 --

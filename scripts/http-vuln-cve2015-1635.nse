@@ -43,6 +43,8 @@ author = {"Kl0nEz", "Paulino <calderon()websec.mx>"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "safe"}
 
+cpe = "cpe:2.3:a:microsoft:windows:*:*:*:*:*:*:*:*"
+
 portrule = shortport.http
 
 local VULNERABLE = "Requested Range Not Satisfiable"

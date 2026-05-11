@@ -38,6 +38,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"safe", "default"}
 
+cpe = "cpe:2.3:a:idera:uptime_infrastructure_monitor:*:*:*:*:*:*:*:*"
+
 portrule = require "shortport".port_or_service(9998, "uptime-agent")
 
 action = function(host, port)

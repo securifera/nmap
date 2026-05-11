@@ -78,6 +78,8 @@ author = "Francisco Leon <@arphanetx>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe", "discovery"}
 
+cpe = "cpe:2.3:a:sap:netweaver:*:*:*:*:*:*:*:*"
+
 local evil_path = "/irj/go/km/navigation?Uri=/"
 
 portrule = shortport.http

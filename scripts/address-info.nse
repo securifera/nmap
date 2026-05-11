@@ -115,6 +115,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"default", "safe"}
 
+cpe = "cpe:2.3:a:ietf:ipv6:*:*:*:*:*:*:*:*"
+
 
 hostrule = function(host)
   return true

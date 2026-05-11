@@ -39,6 +39,8 @@ successfully added.
 author = {"Thomas Buchanan", "Kris Katterjohn"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "safe"}
+
+cpe = "cpe:2.3:a:ietf:snmp:*:*:*:*:*:*:*:*"
 dependencies = {"snmp-brute"}
 
 -- code borrowed heavily from Patrik Karlsson's excellent snmp scripts

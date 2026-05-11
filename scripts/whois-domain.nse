@@ -81,6 +81,8 @@ author = "George Chatzisofroniou"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "external", "safe"}
 
+cpe = "cpe:2.3:a:iana:whois:*:*:*:*:*:*:*:*"
+
 local ipOps = require "ipOps"
 local nmap = require "nmap"
 local stdnse = require "stdnse"

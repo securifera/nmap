@@ -42,6 +42,8 @@ author = "riemann"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe", "external"}
 
+cpe = "cpe:2.3:a:robtex:robtex:*:*:*:*:*:*:*:*"
+
 
 --- Scrape reverse ip information from robtex website
 -- @param data string containing the retrieved web page

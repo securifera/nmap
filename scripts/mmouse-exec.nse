@@ -40,6 +40,8 @@ and abort unless the OS is detected as Mac.
 
 author = "Patrik Karlsson"
 categories = {"intrusive"}
+
+cpe = "cpe:2.3:a:rpa_tech:mobile_mouse:*:*:*:*:*:*:*:*"
 dependencies = {"mmouse-brute"}
 
 

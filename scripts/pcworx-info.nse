@@ -38,6 +38,8 @@ author = "Stephen Hilt (Digital Bond)"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery"}
 
+cpe = "cpe:2.3:a:phoenixcontact:pcworx:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(1962, "pcworx", "tcp")
 
 -- Safely extract a zero-terminated string if the blob is long enough

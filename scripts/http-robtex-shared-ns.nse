@@ -32,6 +32,8 @@ author = "Arturo 'Buanzo' Busleiman"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe", "external"}
 
+cpe = "cpe:2.3:a:robtex:robtex:*:*:*:*:*:*:*:*"
+
 prerule = function() return true end
 action = function()
   return "*TEMPORARILY DISABLED* due to changes in Robtex's API. See https://www.robtex.com/api/"

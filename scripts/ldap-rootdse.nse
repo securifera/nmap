@@ -94,6 +94,8 @@ author = "Patrik Karlsson"
 copyright = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
+
+cpe = "cpe:2.3:a:ietf:ldap:*:*:*:*:*:*:*:*"
 dependencies = {"ldap-brute"}
 
 -- Map domainControllerFunctionality to OS - https://msdn.microsoft.com/en-us/library/cc223272.aspx

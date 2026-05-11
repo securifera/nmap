@@ -24,6 +24,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:samba:rsync:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(873, "rsync", "tcp")
 
 local function fail (err) return stdnse.format_output(false, err) end

@@ -79,6 +79,8 @@ author = {"Paulino Calderon <calderon()websec.mx","Paul Amar <paul()sensepost co
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"exploit","vuln","intrusive"}
 
+cpe = "cpe:2.3:a:gnu:bash:*:*:*:*:*:*:*:*"
+
 portrule = shortport.http
 
 function generate_http_req(host, port, uri, custom_header, cmd)

@@ -45,6 +45,8 @@ author = "Dennis Rösch, Max Helbig"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "intrusive", "version"}
 
+cpe = "cpe:2.3:a:iec:61850:*:*:*:*:*:*:*:*"
+
 -- Helpers
 function replaceEmptyStrings(tbl)
   for key, value in pairs(tbl) do

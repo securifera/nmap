@@ -24,6 +24,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"intrusive"}
 
+cpe = "cpe:2.3:a:hp:jetdirect:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(9100, "jetdirect")
 
 local function parse_response(response)

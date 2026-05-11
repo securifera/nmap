@@ -35,6 +35,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe", "discovery"}
 
+cpe = "cpe:2.3:a:ietf:ip:*:*:*:*:*:*:*:*"
+
 local arg_target = stdnse.get_script_args(SCRIPT_NAME .. ".target")
 
 hostrule = function(host)

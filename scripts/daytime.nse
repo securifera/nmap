@@ -18,6 +18,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:ietf:daytime:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(13, "daytime", {"tcp", "udp"})
 

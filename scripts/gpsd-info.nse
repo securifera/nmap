@@ -29,6 +29,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:gpsd:gpsd:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(2947, "gpsd-ng", "tcp")
 

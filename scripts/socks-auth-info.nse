@@ -37,6 +37,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe", "default"}
 
+cpe = "cpe:2.3:a:ietf:socks:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service({1080, 9050}, {"socks", "socks5", "tor-socks"})
 
 action = function(host, port)

@@ -55,6 +55,8 @@ author = "Duarte Silva <duarte.silva@serializing.me>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "safe"}
 
+cpe = "cpe:2.3:a:apache:http_server:*:*:*:*:*:*:*:*"
+
 
 portrule =  shortport.http
 

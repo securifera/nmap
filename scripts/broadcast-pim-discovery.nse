@@ -39,6 +39,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"discovery", "safe", "broadcast"}
 
+cpe = "cpe:2.3:a:ietf:pim:*:*:*:*:*:*:*:*"
+
 prerule = function()
   -- TODO: IPv6 is supported by PIM-SM
   if nmap.address_family() ~= 'inet' then

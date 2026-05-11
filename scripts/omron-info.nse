@@ -46,6 +46,8 @@ author = "Stephen Hilt (Digital Bond)"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "version"}
 
+cpe = "cpe:2.3:a:omron:fins:*:*:*:*:*:*:*:*"
+
 --
 -- Function to define the portrule as per nmap standards
 --

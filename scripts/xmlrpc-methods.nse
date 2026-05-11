@@ -40,6 +40,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"default", "safe", "discovery"}
 
+cpe = "cpe:2.3:a:ietf:xmlrpc:*:*:*:*:*:*:*:*"
+
 portrule = shortport.http
 
 local function set_80_columns(t)

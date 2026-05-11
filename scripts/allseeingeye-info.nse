@@ -131,6 +131,8 @@ author = "Marin Maržić"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = { "discovery", "safe", "version" }
 
+cpe = "cpe:2.3:a:allseeingeye:allseeingeye:*:*:*:*:*:*:*:*"
+
 portrule = shortport.version_port_or_service({1258,2126,3123,12444,13200,23196,26000,27138,27244,27777,28138}, "allseeingeye", "udp")
 
 action = function(host, port)

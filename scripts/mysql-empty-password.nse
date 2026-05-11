@@ -23,6 +23,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "auth"}
 
+cpe = "cpe:2.3:a:oracle:mysql:*:*:*:*:*:*:*:*"
+
 
 -- Version 0.3
 -- Created 01/15/2010 - v0.1 - created by Patrik Karlsson <patrik@cqure.net>

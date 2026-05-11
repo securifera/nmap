@@ -45,6 +45,8 @@ author = {"Ron Bowes", "Andrew Orr"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "intrusive"}
 
+cpe = "cpe:2.3:a:microsoft:iis:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.http
 

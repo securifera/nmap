@@ -45,6 +45,8 @@ author = "Gorjan Petrovski"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:backorifice:backorifice:*:*:*:*:*:*:*:*"
+
 
 -- This portrule succeeds only when the open|filtered port is in the port range
 -- which is specified by the ports script argument

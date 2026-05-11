@@ -68,6 +68,8 @@ author = "Aleksandar Nikolic"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "vuln"}
 
+cpe = "cpe:2.3:a:microsoft:remote_desktop_protocol:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service({3389},{"ms-wbt-server"})
 

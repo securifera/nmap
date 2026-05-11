@@ -31,6 +31,8 @@ categories = {
   'intrusive',
 }
 
+cpe = "cpe:2.3:a:ietf:ssh:*:*:*:*:*:*:*:*"
+
 portrule = shortport.ssh
 
 local arg_timeout = stdnse.get_script_args(SCRIPT_NAME .. ".timeout") or "5s"

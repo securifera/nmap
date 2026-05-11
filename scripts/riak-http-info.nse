@@ -53,6 +53,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:basho:riak:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(8098, "http")
 

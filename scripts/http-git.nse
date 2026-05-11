@@ -55,6 +55,8 @@ message, and repository description.
 -- </table>
 
 categories = { "default", "safe", "vuln" }
+
+cpe = "cpe:2.3:a:git:git:*:*:*:*:*:*:*:*"
 author = "Alex Weber"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 portrule = shortport.http

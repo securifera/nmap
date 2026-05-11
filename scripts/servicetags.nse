@@ -81,6 +81,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"default", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:sun:service_tags:*:*:*:*:*:*:*:*"
+
 
 -- Mapping from XML element names to human-readable table labels.
 local XML_TO_TEXT = {

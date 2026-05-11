@@ -38,6 +38,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"default", "safe", "discovery"}
 
+cpe = "cpe:2.3:a:ietf:sip:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(5060, "sip", {"tcp", "udp"})
 

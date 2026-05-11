@@ -59,6 +59,8 @@ author = "Mak Kolybabi <mak@kolybabi.com>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "safe", "version"}
 
+cpe = "cpe:2.3:a:ietf:tftp:*:*:*:*:*:*:*:*"
+
 portrule = shortport.version_port_or_service(69, "tftp", "udp")
 
 local load_fingerprints = function()

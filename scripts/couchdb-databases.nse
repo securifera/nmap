@@ -36,6 +36,8 @@ author = "Martin Holst Swende"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:apache:couchdb:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service({5984})
 -- Some lazy shortcuts
 local dbg = stdnse.debug1

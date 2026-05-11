@@ -13,6 +13,8 @@ author = "Daniel Miller"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"version", "safe"}
 
+cpe = "cpe:2.3:a:oracle:database:*:*:*:*:*:*:*:*"
+
 portrule = function (host, port)
   return (
     -- -sV has an actual version for this, no need to send more probes and decode.

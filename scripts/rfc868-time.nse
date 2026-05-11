@@ -23,6 +23,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"discovery", "safe", "version"}
 
+cpe = "cpe:2.3:a:ietf:time:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.version_port_or_service(37, "time", {"tcp", "udp"})
 

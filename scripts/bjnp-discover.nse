@@ -26,6 +26,8 @@ devices.
 --
 
 categories = {"safe", "discovery"}
+
+cpe = "cpe:2.3:a:canon:bjnp:*:*:*:*:*:*:*:*"
 author = "Patrik Karlsson"
 
 local bjnp = require("bjnp")

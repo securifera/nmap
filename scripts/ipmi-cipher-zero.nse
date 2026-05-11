@@ -42,6 +42,8 @@ author = "Claudiu Perta <claudiu.perta@gmail.com>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "safe"}
 
+cpe = "cpe:2.3:a:intel:ipmi:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(623, "asf-rmcp", "udp", {"open", "open|filtered"})
 
 action = function(host, port)

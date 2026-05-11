@@ -30,6 +30,8 @@ author = "Paulino Calderon <calderon@websec.mx>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery","safe"}
 
+cpe = "cpe:2.3:a:cakephp:cakephp:*:*:*:*:*:*:*:*"
+
 local http = require "http"
 local nmap = require "nmap"
 local shortport = require "shortport"

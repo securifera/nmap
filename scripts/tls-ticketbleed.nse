@@ -48,6 +48,8 @@ For additional information:
 author = "Mak Kolybabi <mak@kolybabi.com>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "safe"}
+
+cpe = "cpe:2.3:a:f5:big-ip:*:*:*:*:*:*:*:*"
 dependencies = {"https-redirect"}
 
 portrule = function(host, port)

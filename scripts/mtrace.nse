@@ -66,6 +66,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"discovery", "safe", "broadcast"}
 
+cpe = "cpe:2.3:a:ietf:igmp:*:*:*:*:*:*:*:*"
+
 -- From: https://tools.ietf.org/id/draft-ietf-idmr-traceroute-ipm-07.txt
 PROTO = {
   [0x01] = "DVMRP",

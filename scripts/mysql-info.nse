@@ -45,6 +45,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = { "default", "discovery", "safe" }
 
+cpe = "cpe:2.3:a:oracle:mysql:*:*:*:*:*:*:*:*"
+
 --- Converts a number to a string description of the capabilities
 --@param num Start of the capabilities data
 --@return table containing the names of the capabilities offered

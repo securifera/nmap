@@ -39,6 +39,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:oracle:database:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(1521, 'oracle-tns')
 

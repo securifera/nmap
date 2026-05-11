@@ -22,6 +22,8 @@ author = "Niklaus Schiess <nschiess@adversec.com>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {'discovery', 'safe', 'default'}
 
+cpe = "cpe:2.3:a:microsoft:directaccess:*:*:*:*:*:*:*:*"
+
 ---
 --@usage
 -- nmap --script ip-https-discover

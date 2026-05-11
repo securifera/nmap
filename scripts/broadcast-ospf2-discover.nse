@@ -51,6 +51,8 @@ author     = "Emiliano Ticci"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"broadcast", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:ietf:ospf:*:*:*:*:*:*:*:*"
+
 prerule = function()
   if nmap.address_family() ~= "inet" then
     stdnse.print_verbose("is IPv4 only.")

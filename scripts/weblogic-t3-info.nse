@@ -8,6 +8,8 @@ author = {"Alessandro ZANNI <alessandro.zanni@bt.com>", "Daniel Miller"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default","safe","discovery","version"}
 
+cpe = "cpe:2.3:a:oracle:weblogic_server:*:*:*:*:*:*:*:*"
+
 ---@output
 --|_weblogic-t3-info: T3 protocol in use (WebLogic version: 12.1.2)
 

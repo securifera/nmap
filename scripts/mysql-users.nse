@@ -34,6 +34,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"auth", "intrusive"}
 
+cpe = "cpe:2.3:a:oracle:mysql:*:*:*:*:*:*:*:*"
+
 
 dependencies = {"mysql-brute", "mysql-empty-password"}
 

@@ -42,6 +42,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"intrusive"}
 
+cpe = "cpe:2.3:a:cisco:ios:*:*:*:*:*:*:*:*"
+
 dependencies = {"snmp-brute"}
 
 

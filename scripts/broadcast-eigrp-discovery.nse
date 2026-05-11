@@ -73,6 +73,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"discovery", "broadcast", "safe"}
 
+cpe = "cpe:2.3:a:cisco:eigrp:*:*:*:*:*:*:*:*"
+
 prerule = function()
   -- TODO: EIGRP for IPv6 uses ff02::10
   if nmap.address_family() ~= 'inet' then

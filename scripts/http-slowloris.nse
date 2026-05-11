@@ -60,6 +60,8 @@ author = {"Aleksandar Nikolic", "Ange Gutek"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"dos", "intrusive"}
 
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
+
 -- Note: The http-slowloris script has lots of script-level variables that will
 -- probably conflict with each other when scanning multiple services.
 -- See https://github.com/nmap/nmap/issues/63

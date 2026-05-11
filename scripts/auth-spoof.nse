@@ -22,6 +22,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"malware", "safe"}
 
+cpe = "cpe:2.3:a:ietf:ident:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(113, "auth")
 

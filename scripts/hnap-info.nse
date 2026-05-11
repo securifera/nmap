@@ -59,6 +59,8 @@ categories = {
   "version"
 }
 
+cpe = "cpe:2.3:a:cisco:hnap:*:*:*:*:*:*:*:*"
+
 
 portrule = function(host, port)
   return (shortport.http(host,port) and nmap.version_intensity() >= 7)

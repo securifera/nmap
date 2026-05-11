@@ -38,6 +38,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:vuze:vuze:*:*:*:*:*:*:*:*"
+
 
 portrule = function(host, port)
   local allports = stdnse.get_script_args('vuze-dht-info.allports')

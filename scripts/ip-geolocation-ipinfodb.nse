@@ -45,6 +45,8 @@ author = "Gorjan Petrovski"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery","external","safe"}
 
+cpe = "cpe:2.3:a:ipinfodb:ipinfodb:*:*:*:*:*:*:*:*"
+
 
 hostrule = function(host)
   local is_private, err = ipOps.isPrivate( host.ip )

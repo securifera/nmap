@@ -27,6 +27,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"safe", "discovery"}
 
+cpe = "cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*"
+
 
 hostrule = function(host)
   -- print debug messages because the script relies on

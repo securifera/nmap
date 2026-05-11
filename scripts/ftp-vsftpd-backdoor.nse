@@ -53,6 +53,8 @@ author = "Daniel Miller"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"exploit", "intrusive", "malware", "vuln"}
 
+cpe = "cpe:2.3:a:vsftpd:vsftpd:*:*:*:*:*:*:*:*"
+
 
 local CMD_FTP = "USER X:)\r\nPASS X\r\n"
 local CMD_SHELL_ID = "id"

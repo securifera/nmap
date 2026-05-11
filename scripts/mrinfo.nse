@@ -68,6 +68,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"discovery", "safe", "broadcast"}
 
+cpe = "cpe:2.3:a:ietf:dvmrp:*:*:*:*:*:*:*:*"
+
 
 prerule = function()
   if nmap.address_family() ~= 'inet' then

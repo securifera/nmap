@@ -34,6 +34,8 @@ author = "nnposter"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {'brute', 'intrusive'}
 
+cpe = "cpe:2.3:a:ietf:telnet:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(23, 'telnet')
 
 

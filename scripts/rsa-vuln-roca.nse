@@ -32,6 +32,8 @@ author = "Daniel Miller"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "safe"}
 
+cpe = "cpe:2.3:a:infineon:rsalib:*:*:*:*:*:*:*:*"
+
 -- only run this script if the target host is NOT a private (RFC1918) IP address)
 -- and the port is an open SSL service
 portrule = function(host, port)

@@ -21,6 +21,8 @@ author = "Toni Ruottu"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"brute", "intrusive"}
 
+cpe = "cpe:2.3:a:netbus:netbus:*:*:*:*:*:*:*:*"
+
 
 dependencies = {"netbus-version"}
 

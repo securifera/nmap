@@ -32,6 +32,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"discovery", "broadcast", "safe"}
 
+cpe = "cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*"
+
 
 prerule = function()
   return nmap.is_privileged()

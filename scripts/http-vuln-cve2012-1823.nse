@@ -52,6 +52,8 @@ author = {"Paulino Calderon <calderon@websec.mx>", "Paul AMAR <aos.paul@gmail.co
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"exploit","vuln","intrusive"}
 
+cpe = "cpe:2.3:a:php:php:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.http
 

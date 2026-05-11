@@ -37,6 +37,8 @@ author = {"Eddie Bell", "Rob Nicholls", "Ange Gutek", "David Fifield"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "auth", "safe"}
 
+cpe = "cpe:2.3:a:ietf:ftp:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service({21,990}, {"ftp","ftps"})
 

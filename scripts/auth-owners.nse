@@ -31,6 +31,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"default", "safe"}
 
+cpe = "cpe:2.3:a:ietf:ident:*:*:*:*:*:*:*:*"
+
 portrule = function(host, port)
   local auth_port = { number=113, protocol="tcp" }
   local identd = nmap.get_port_state(host, auth_port)

@@ -46,6 +46,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"vuln", "intrusive"}
 
+cpe = "cpe:2.3:a:netfilter:netfilter:*:*:*:*:*:*:*:*"
+
 ftp_helper = {
   should_run = function(host, helperport)
     local helperport = helperport or 21

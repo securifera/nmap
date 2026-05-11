@@ -68,6 +68,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"default", "safe"}
 
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
+
 local function check_allowed(random_resp, response)
   if response.status == 405 or response.status == 501 then
     return false

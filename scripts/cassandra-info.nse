@@ -34,6 +34,8 @@ author = "Vlatko Kosturjak"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:apache:cassandra:*:*:*:*:*:*:*:*"
+
 dependencies = {"cassandra-brute"}
 
 portrule = shortport.port_or_service({9160}, {"cassandra"})

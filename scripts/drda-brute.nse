@@ -29,6 +29,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories={"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:ibm:db2:*:*:*:*:*:*:*:*"
+
 
 -- Version 0.5
 -- Created 05/08/2010 - v0.1 - created by Patrik Karlsson <patrik@cqure.net>

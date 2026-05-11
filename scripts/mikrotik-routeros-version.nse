@@ -10,6 +10,8 @@ author = {"deauther890", "Daniel Miller"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "version", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:mikrotik:routeros:*:*:*:*:*:*:*:*"
+
 ---@usage
 -- nmap -p 8291 --script mikrotik-routeros-version <target>
 

@@ -74,6 +74,8 @@ Ayoub ELAASSAL.
 author = "Philip Young aka Soldier of Fortran"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
+
+cpe = "cpe:2.3:a:ibm:cics:*:*:*:*:*:*:*:*"
 portrule = shortport.port_or_service({23,992}, "tn3270")
 
 

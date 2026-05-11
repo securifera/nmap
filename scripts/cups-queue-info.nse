@@ -27,6 +27,8 @@ printer.
 
 categories = {"safe", "discovery"}
 
+cpe = "cpe:2.3:a:apple:cups:*:*:*:*:*:*:*:*"
+
 author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe", "discovery"}

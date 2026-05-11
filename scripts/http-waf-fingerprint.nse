@@ -37,6 +37,8 @@ author = "Hani Benhabiles"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "intrusive"}
 
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
+
 --
 -- Version 0.1:
 -- - Initial version based on work done with wafw00f and w3af.

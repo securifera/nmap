@@ -41,6 +41,8 @@ categories = {
   "vuln"
 };
 
+cpe = "cpe:2.3:a:oracle:jre:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service({1098, 1099, 1090, 8901, 8902, 8903}, {"java-rmi", "rmiregistry"})
 

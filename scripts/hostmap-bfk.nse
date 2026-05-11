@@ -66,6 +66,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"external", "discovery"}
 
+cpe = "cpe:2.3:a:bfk:dnslogger:*:*:*:*:*:*:*:*"
+
 
 local HOSTMAP_SERVER = "www.bfk.de"
 

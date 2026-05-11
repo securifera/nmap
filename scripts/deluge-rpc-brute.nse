@@ -26,6 +26,8 @@ author = "Claudiu Perta <claudiu.perta@gmail.com>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:deluge-torrent:deluge:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(58846, "deluge-rpc")
 
 -- Returns an rencoded login request with the given username and password.

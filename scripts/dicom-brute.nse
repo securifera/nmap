@@ -23,6 +23,8 @@ author = "Paulino Calderon <calderon()calderonpale.com>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"auth", "brute"}
 
+cpe = "cpe:2.3:a:nema:dicom:*:*:*:*:*:*:*:*"
+
 local shortport = require "shortport"
 local dicom = require "dicom"
 local stdnse = require "stdnse"

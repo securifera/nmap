@@ -109,6 +109,8 @@ The output is intended to resemble the output of the UNIX <code>ls</code> comman
 author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
+
+cpe = "cpe:2.3:a:microsoft:smb:*:*:*:*:*:*:*:*"
 dependencies = {"smb-enum-shares"}
 
 local arg_shares   = stdnse.get_script_args(SCRIPT_NAME .. '.shares')

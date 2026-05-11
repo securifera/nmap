@@ -68,6 +68,8 @@ author = "Mak Kolybabi <mak@kolybabi.com>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"external", "safe"}
 
+cpe = "cpe:2.3:a:google:google_maps:*:*:*:*:*:*:*:*"
+
 local render = function(params, options)
   -- Add in a marker for each GPS coordinate.
   local markers = {}

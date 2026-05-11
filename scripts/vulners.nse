@@ -53,6 +53,8 @@ author = 'gmedian AT vulners DOT com'
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "safe", "external"}
 
+cpe = "cpe:2.3:a:vulners:vulners:*:*:*:*:*:*:*:*"
+
 
 local http = require "http"
 local json = require "json"

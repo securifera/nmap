@@ -80,6 +80,8 @@ author = "Andrew Orr"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = { "vuln", "auth", "exploit" }
 
+cpe = "cpe:2.3:a:intel:active_management_technology:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service({623, 664, 16992, 16993}, "amt-soap-http")
 
 action = function(host, port)

@@ -138,6 +138,8 @@ author = {"Seth Art <sethsec()gmail>", "Paulino Calderon <calderon()websec.mx>",
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe", "external", "vuln"}
 
+cpe = "cpe:2.3:a:adobe:flash_player:*:*:*:*:*:*:*:*"
+
 portrule = shortport.http
 local tlds_instantdomainsearch = {".com", ".net", ".org", ".co", ".info", ".biz", ".mobi", ".us", ".ca", ".co.uk",
                           ".in", ".io", ".it", ".pt", ".me", ".tv"}

@@ -36,6 +36,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:rapid7:nexpose:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(3780, "nexpose", "tcp")
 

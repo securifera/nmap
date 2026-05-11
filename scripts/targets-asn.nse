@@ -36,6 +36,8 @@ license = "Simplified (2-clause) BSD license--See https://nmap.org/svn/docs/lice
 
 categories = {"discovery", "external", "safe"}
 
+cpe = "cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*"
+
 
 prerule = function()
   return true

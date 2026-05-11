@@ -65,6 +65,8 @@ author = "Paulino Calderon <calderon@websec.mx>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "exploit"}
 
+cpe = "cpe:2.3:a:tp-link:wireless_router:*:*:*:*:*:*:*:*"
+
 local http = require "http"
 local io = require "io"
 local shortport = require "shortport"

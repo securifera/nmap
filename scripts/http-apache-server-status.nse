@@ -48,6 +48,8 @@ author = "Eric Gershman"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:apache:http_server:*:*:*:*:*:*:*:*"
+
 portrule = function(host, port)
   if not shortport.http(host, port) then
     return false

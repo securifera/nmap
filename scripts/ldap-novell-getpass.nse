@@ -48,6 +48,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:novell:edirectory:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service({389,636}, {"ldap","ldapssl"})
 

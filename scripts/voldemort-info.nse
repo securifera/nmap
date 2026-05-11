@@ -41,6 +41,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:linkedin:voldemort:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(6666, "vp3", "tcp")
 

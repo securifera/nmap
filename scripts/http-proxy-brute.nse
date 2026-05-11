@@ -34,6 +34,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 -- as most request should not "leave" the proxy.
 categories = {"brute", "intrusive", "external"}
 
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service({8123,3128,8000,8080},{'polipo','squid-http','http-proxy'})
 

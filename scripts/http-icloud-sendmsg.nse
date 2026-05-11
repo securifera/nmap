@@ -35,6 +35,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe", "external"}
 
+cpe = "cpe:2.3:a:apple:icloud:*:*:*:*:*:*:*:*"
+
 
 local arg_username    = stdnse.get_script_args(SCRIPT_NAME .. ".username")
 local arg_password    = stdnse.get_script_args(SCRIPT_NAME .. ".password")

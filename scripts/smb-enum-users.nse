@@ -144,6 +144,8 @@ author = "Ron Bowes"
 copyright = "Ron Bowes"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"auth","intrusive"}
+
+cpe = "cpe:2.3:a:microsoft:windows:*:*:*:*:*:*:*:*"
 dependencies = {"smb-brute"}
 
 

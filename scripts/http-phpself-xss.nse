@@ -55,6 +55,8 @@ author = "Paulino Calderon <calderon@websec.mx>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"fuzzer", "intrusive", "vuln"}
 
+cpe = "cpe:2.3:a:php:php:*:*:*:*:*:*:*:*"
+
 local http = require 'http'
 local httpspider = require 'httpspider'
 local shortport = require 'shortport'

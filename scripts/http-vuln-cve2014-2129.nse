@@ -36,6 +36,8 @@ author = "Patrik Karlsson <patrik@cqure.net>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "safe"}
 
+cpe = "cpe:2.3:a:cisco:adaptive_security_appliance:*:*:*:*:*:*:*:*"
+
 portrule = function(host, port)
   return port.protocol == "tcp" and (shortport.ssl(host, port) or sslcert.isPortSupported(port))
 end

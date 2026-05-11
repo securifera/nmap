@@ -37,6 +37,8 @@ author = "Mak Kolybabi"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "intrusive"}
 
+cpe = "cpe:2.3:a:nagios:nrpe:*:*:*:*:*:*:*:*"
+
 
 local NRPE_PROTOCOLS = {
   "ssl",

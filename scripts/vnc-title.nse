@@ -14,6 +14,8 @@ author = "Daniel Miller"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "discovery"}
 
+cpe = "cpe:2.3:a:realvnc:vnc:*:*:*:*:*:*:*:*"
+
 ---
 -- @see vnc-brute.nse
 -- @see realvnc-auth-bypass.nse

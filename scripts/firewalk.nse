@@ -75,6 +75,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"safe", "discovery"}
 
+cpe = "cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*"
+
 
 -- TODO
 --  o add an option to select gateway(s)/TTL(s) to probe

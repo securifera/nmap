@@ -39,6 +39,8 @@ author = "Joao Correa"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "external", "safe"}
 
+cpe = "cpe:2.3:a:ietf:socks:*:*:*:*:*:*:*:*"
+
 
 --- Performs the custom test, with user's arguments
 -- @param host The host table

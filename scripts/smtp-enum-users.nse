@@ -52,6 +52,8 @@ author = "Duarte Silva <duarte.silva@serializing.me>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"auth","external","intrusive"}
 
+cpe = "cpe:2.3:a:ietf:smtp:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service({ 25, 465, 587 },
   { "smtp", "smtps", "submission" })

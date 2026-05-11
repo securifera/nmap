@@ -64,6 +64,8 @@ author = "Philip Young aka Soldier of Fortran"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:ibm:tso:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service({23,992,623}, {"tn3270"})
 
 Driver = {

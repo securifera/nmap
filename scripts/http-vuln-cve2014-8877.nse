@@ -52,6 +52,8 @@ author = "Mariusz Ziulek <mzet()owasp org>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "intrusive", "exploit"}
 
+cpe = "cpe:2.3:a:wordpress:cm_download_manager:*:*:*:*:*:*:*:*"
+
 portrule = shortport.http
 
 function genHttpReq(host, port, uri, cmd)

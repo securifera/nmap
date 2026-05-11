@@ -58,6 +58,8 @@ by it will be checked in addition to the root.
 -- @see http-security-headers.nse
 
 categories = { "default", "safe", "vuln" }
+
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
 author = "Steve Benson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 dependencies = {"http-enum"}

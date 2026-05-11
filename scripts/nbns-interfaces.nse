@@ -40,6 +40,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"default", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:microsoft:netbios:*:*:*:*:*:*:*:*"
+
 portrule = nmap.address_family() == 'inet' -- NBNS is IPv4 only
            and shortport.portnumber(137, "udp")
            or function () return false end

@@ -56,6 +56,8 @@ license = "Simplified (2-clause) BSD license--See https://nmap.org/svn/docs/lice
 
 categories = {"discovery", "intrusive"}
 
+cpe = "cpe:2.3:a:isc:bind:*:*:*:*:*:*:*:*"
+
 
 portrule = function (host, port)
   if not shortport.port_or_service(53, "domain", {"tcp", "udp"})(host, port) then

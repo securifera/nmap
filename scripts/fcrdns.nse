@@ -68,6 +68,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 -- not default, because user may choose -n and expect no DNS
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:ietf:dns:*:*:*:*:*:*:*:*"
+
 
 hostrule = function(host)
   -- Every host with an IP address can be checked

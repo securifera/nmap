@@ -23,6 +23,8 @@ author = "Henri Doreau"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"brute", "intrusive"}
 
+cpe = "cpe:2.3:a:openvas:openvas:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(9390, "openvas")
 

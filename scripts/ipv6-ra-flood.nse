@@ -45,6 +45,8 @@ author = "Adam Števko"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"dos", "intrusive"}
 
+cpe = "cpe:2.3:a:ietf:ipv6:*:*:*:*:*:*:*:*"
+
 try = nmap.new_try()
 
 prerule = function()

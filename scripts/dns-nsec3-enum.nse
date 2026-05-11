@@ -81,6 +81,8 @@ author = {"Aleksandar Nikolic", "John R. Bond"}
 license = "Simplified (2-clause) BSD license--See https://nmap.org/svn/docs/licenses/BSD-simplified"
 categories = {"discovery", "intrusive"}
 
+cpe = "cpe:2.3:a:isc:bind:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(53, "domain", {"tcp", "udp"})
 
 all_results = {}

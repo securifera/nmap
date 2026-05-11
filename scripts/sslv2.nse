@@ -38,6 +38,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"default", "safe"}
 
+cpe = "cpe:2.3:a:openssl:openssl:*:*:*:*:*:*:*:*"
+
 
 portrule = function(host, port)
   return port.protocol == "tcp" and (shortport.ssl(host, port) or sslcert.getPrepareTLSWithoutReconnect(port))

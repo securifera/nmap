@@ -63,6 +63,8 @@ author = "Paulino Calderon <calderon()calderonpale.com>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "safe"}
 
+cpe = "cpe:2.3:a:microsoft:windows:*:*:*:*:*:*:*:*"
+
 hostrule = function(host)
   local ms = false
   local os_detection = stdnse.get_script_args(SCRIPT_NAME .. ".skip-os") or false

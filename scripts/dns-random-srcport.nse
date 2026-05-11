@@ -40,6 +40,8 @@ porttest.dns-oarc.net: Duane Wessels <wessels@dns-oarc.net>
 
 categories = {"external", "intrusive"}
 
+cpe = "cpe:2.3:a:isc:bind:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.portnumber(53, "udp")
 

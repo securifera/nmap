@@ -45,6 +45,8 @@ author = "Mak Kolybabi <mak@kolybabi.com>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "intrusive"}
 
+cpe = "cpe:2.3:a:ietf:nbd:*:*:*:*:*:*:*:*"
+
 portrule = shortport.version_port_or_service(10809, "nbd", "tcp")
 
 local enumerate_options = function(comm)

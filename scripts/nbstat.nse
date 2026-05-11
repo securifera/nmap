@@ -85,6 +85,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 -- Christopher R. Hertel.
 categories = {"default", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:microsoft:netbios:*:*:*:*:*:*:*:*"
+
 
 hostrule = function(host)
 

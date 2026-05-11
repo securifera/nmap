@@ -45,6 +45,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "auth"}
 
+cpe = "cpe:2.3:a:ibm:lotus_domino:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(1352, "lotusnotes", "tcp", "open")
 

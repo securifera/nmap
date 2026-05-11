@@ -46,6 +46,8 @@ author = "Djalal Harouni"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "vuln"}
 
+cpe = "cpe:2.3:a:postfix:postfix:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service({25, 465, 587},
   {"smtp", "smtps", "submission"})

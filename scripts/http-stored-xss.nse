@@ -54,6 +54,8 @@ strings to determine whether the payloads were successful.
 -- @see http-unsafe-output-escaping.nse
 
 categories = {"intrusive", "exploit", "vuln"}
+
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
 author = "George Chatzisofroniou"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 

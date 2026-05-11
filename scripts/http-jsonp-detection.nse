@@ -45,6 +45,8 @@ author = {"Vinamra Bhatia"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe", "vuln", "discovery"}
 
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
+
 portrule = shortport.http
 
 local callbacks = {"callback", "cb", "jsonp", "jsonpcallback", "jcb", "call"}

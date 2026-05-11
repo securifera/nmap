@@ -33,6 +33,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:novell:netware:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(524, "ncp", "tcp")
 

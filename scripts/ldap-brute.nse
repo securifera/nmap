@@ -80,6 +80,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:ietf:ldap:*:*:*:*:*:*:*:*"
+
 
 -- Version 0.6
 -- Created 01/20/2010 - v0.1 - created by Patrik Karlsson

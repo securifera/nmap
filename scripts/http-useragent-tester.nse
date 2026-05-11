@@ -67,6 +67,8 @@ Checks if various crawling utilities are allowed by the host.
 ---
 
 categories = {"discovery", "safe"}
+
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
 author = "George Chatzisofroniou"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 

@@ -37,6 +37,8 @@ author = "Ange Gutek"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln","intrusive"}
 
+cpe = "cpe:2.3:a:freebsd:opie:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.port_or_service(21, "ftp")
 

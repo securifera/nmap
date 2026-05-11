@@ -35,6 +35,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe", "discovery", "default"}
 
+cpe = "cpe:2.3:a:microsoft:ws-discovery:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.portnumber(3702, "udp", {"open", "open|filtered"})
 

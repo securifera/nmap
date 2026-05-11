@@ -61,6 +61,8 @@ categories = {
   "discovery",
 }
 
+cpe = "cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*"
+
 local function split_prefix (net)
   local split = stringaux.strsplit("/", net)
   return split[1], tonumber(split[2])

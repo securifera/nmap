@@ -33,6 +33,8 @@ author = {"Jay Smith", "Mak Kolybabi <mak@kolybabi.com>"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "safe"}
 
+cpe = "cpe:2.3:a:opennetworking:openflow:*:*:*:*:*:*:*:*"
+
 -- OpenFlow versions released:
 -- 0x01 = 1.0
 -- 0x02 = 1.1

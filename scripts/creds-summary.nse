@@ -28,6 +28,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"auth", "default", "safe"}
 
+cpe = "cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*"
+
 
 postrule = function()
   local all = creds.Credentials:new(creds.ALL_DATA)

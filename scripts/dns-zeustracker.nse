@@ -25,6 +25,8 @@ author = "Mikael Keri"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe", "discovery", "external", "malware"}
 
+cpe = "cpe:2.3:a:abuse_ch:zeustracker:*:*:*:*:*:*:*:*"
+
 
 
 hostrule = function(host) return not(ipOps.isPrivate(host.ip)) end

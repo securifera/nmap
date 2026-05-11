@@ -24,6 +24,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"version"}
 
+cpe = "cpe:2.3:a:digium:asterisk:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.version_port_or_service(4569, nil, "udp")
 

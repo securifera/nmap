@@ -43,6 +43,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"broadcast", "safe"}
 
+cpe = "cpe:2.3:a:ietf:rip:*:*:*:*:*:*:*:*"
+
 
 prerule = function() return not( nmap.address_family() == "inet6") end
 

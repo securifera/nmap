@@ -42,6 +42,8 @@ author = "Aleksandar Nikolic"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln","intrusive","dos"}
 
+cpe = "cpe:2.3:a:microsoft:windows:*:*:*:*:*:*:*:*"
+
 hostrule = function(host)
   return smb.get_port(host) ~= nil
 end

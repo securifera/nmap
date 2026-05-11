@@ -53,6 +53,8 @@ author = "Djalal Harouni"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "vuln"}
 
+cpe = "cpe:2.3:a:exim:exim:*:*:*:*:*:*:*:*"
+
 
 portrule = function (host, port)
   if port.version.product ~= nil and port.version.product ~= "Exim smtpd" then

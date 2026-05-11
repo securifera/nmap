@@ -35,6 +35,8 @@ author = "Mak Kolybabi"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "intrusive"}
 
+cpe = "cpe:2.3:a:stuxnet:stuxnet:*:*:*:*:*:*:*:*"
+
 
 local STUXNET_PATHS = {"\\\\browser", "\\\\ntsvcs", "\\\\pipe\\browser", "\\\\pipe\\ntsvcs"}
 local STUXNET_UUID = "\xe1\x04\x02\x00\x00\x00\x00\x00\xc0\x00\x00\x00\x00\x00\x00\x46"

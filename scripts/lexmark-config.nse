@@ -52,6 +52,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
 
+cpe = "cpe:2.3:a:lexmark:printer:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.portnumber({5353,9100}, "udp")
 

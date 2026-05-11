@@ -47,6 +47,8 @@ author = "Tom Sellers"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:microsoft:remote_desktop_protocol:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(3389, "ms-wbt-server")
 
 action = function(host, port)

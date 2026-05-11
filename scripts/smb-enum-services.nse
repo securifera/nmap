@@ -852,6 +852,8 @@ author = "Rewanth Cool"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery","intrusive","safe"}
 
+cpe = "cpe:2.3:a:microsoft:windows:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service({445, 139}, "microsoft-ds", "tcp", "open")
 
 action = function(host, port)

@@ -45,6 +45,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"default", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:ietf:irc:*:*:*:*:*:*:*:*"
+
 portrule = irc.portrule
 
 local banner_timeout = 60

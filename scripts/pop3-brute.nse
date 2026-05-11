@@ -29,6 +29,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"intrusive", "brute"}
 
+cpe = "cpe:2.3:a:ietf:pop3:*:*:*:*:*:*:*:*"
+
 Driver = {
   new = function(self, host, port, login_function, is_apop)
     local o = {}

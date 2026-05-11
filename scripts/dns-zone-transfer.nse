@@ -93,6 +93,8 @@ author = "Eddie Bell"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {'intrusive', 'discovery'}
 
+cpe = "cpe:2.3:a:ietf:dns:*:*:*:*:*:*:*:*"
+
 -- DNS options
 local dns_opts = {}
 

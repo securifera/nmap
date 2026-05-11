@@ -27,6 +27,8 @@ author = "vladz"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "safe", "auth"}
 
+cpe = "cpe:2.3:a:x:x11:*:*:*:*:*:*:*:*"
+
 portrule = function(host, port)
   return ((port.number >= 6000 and port.number <= 6009)
     or (port.service and string.match(port.service, "^X11")))

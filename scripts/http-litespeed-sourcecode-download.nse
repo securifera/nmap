@@ -42,6 +42,8 @@ author = "Paulino Calderon <calderon@websec.mx>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "intrusive", "exploit"}
 
+cpe = "cpe:2.3:a:litespeedtech:litespeed_web_server:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.http
 

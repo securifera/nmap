@@ -57,6 +57,8 @@ author = "Paulino Calderon <calderon@websec.mx>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"exploit","vuln"}
 
+cpe = "cpe:2.3:a:huawei:hg5xx:*:*:*:*:*:*:*:*"
+
 local http = require "http"
 local nmap = require "nmap"
 local shortport = require "shortport"

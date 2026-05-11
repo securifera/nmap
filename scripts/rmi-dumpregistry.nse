@@ -148,6 +148,8 @@ author = "Martin Holst Swende"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:oracle:jre:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service({1098, 1099, 1090, 8901, 8902, 8903}, {"java-rmi", "rmiregistry"})
 
 -- Some lazy shortcuts

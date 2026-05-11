@@ -138,6 +138,8 @@ author = {"Sven Klemm", "Piotr Olma", "George Chatzisofroniou"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe","default","discovery"}
 
+cpe = "cpe:2.3:a:ietf:ssh:*:*:*:*:*:*:*:*"
+
 
 portrule = shortport.ssh
 

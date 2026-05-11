@@ -24,6 +24,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"version", "safe"}
 
+cpe = "cpe:2.3:a:mcafee:epolicy_orchestrator:*:*:*:*:*:*:*:*"
+
 local http = require "http"
 local nmap = require "nmap"
 local stdnse = require "stdnse"

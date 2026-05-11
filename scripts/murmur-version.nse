@@ -40,6 +40,8 @@ author = "Marin Maržić"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = { "version" }
 
+cpe = "cpe:2.3:a:mumble:murmur:*:*:*:*:*:*:*:*"
+
 portrule = shortport.version_port_or_service({64738}, "murmur", {"tcp", "udp"})
 
 action = function(host, port)

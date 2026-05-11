@@ -30,6 +30,8 @@ author = "Mak Kolybabi <mak@kolybabi.com>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe"}
 
+cpe = "cpe:2.3:a:google:kml:*:*:*:*:*:*:*:*"
+
 local render = function(path)
   local kml = {'<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2">\n  <Document>'}
 

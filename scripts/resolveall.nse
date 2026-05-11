@@ -68,6 +68,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"safe", "discovery"}
 
+cpe = "cpe:2.3:a:nmap:nmap:*:*:*:*:*:*:*:*"
+
 
 prerule = function()
   return stdnse.get_script_args("resolveall.hosts")

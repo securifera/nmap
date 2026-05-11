@@ -16,6 +16,8 @@ author = "Aleksandar Nikolic"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default","safe","discovery"}
 
+cpe = "cpe:2.3:a:oracle:jdk:*:*:*:*:*:*:*:*"
+
 ---
 -- @usage nmap -sT <target> -p <port> --script=+jdwp-info
 -- @output

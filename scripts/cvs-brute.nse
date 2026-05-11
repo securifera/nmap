@@ -34,6 +34,8 @@ Performs brute force password auditing against CVS pserver authentication.
 author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "brute"}
+
+cpe = "cpe:2.3:a:nongnu:cvs:*:*:*:*:*:*:*:*"
 dependencies = {"cvs-brute-repository"}
 
 

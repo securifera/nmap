@@ -47,6 +47,8 @@ author = "Justin Cacak"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"default", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:ietf:nntp:*:*:*:*:*:*:*:*"
+
 
 local ntlm_auth_blob = base64.enc( select(2,
   smbauth.get_security_blob(nil, nil, nil, nil, nil, nil, nil,

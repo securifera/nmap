@@ -23,6 +23,8 @@ Please, note that the script will become more intrusive though.
 ---
 
 categories = {"discovery", "intrusive"}
+
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
 author = "George Chatzisofroniou"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 

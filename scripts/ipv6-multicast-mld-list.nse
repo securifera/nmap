@@ -63,6 +63,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 -- Technically multicast, not broadcast
 categories = {"broadcast", "discovery"}
 
+cpe = "cpe:2.3:a:ietf:ipv6:*:*:*:*:*:*:*:*"
+
 -- https://www.iana.org/assignments/ipv6-multicast-addresses/link-local.csv
 -- Removed "variable scope" and "Unassigned"
 -- Address(s),Description,Reference,Date Registered,Last Reviewed

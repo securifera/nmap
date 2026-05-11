@@ -73,6 +73,8 @@ author = "Mak Kolybabi <mak@kolybabi.com>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe", "discovery"}
 
+cpe = "cpe:2.3:a:ietf:coap:*:*:*:*:*:*:*:*"
+
 -- TODO: Add 5684 "coaps" if DTLS support is added
 portrule = shortport.port_or_service(5683, "coap", "udp")
 

@@ -70,6 +70,8 @@ author = "Mariusz Ziulek <mzet()owasp org>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"vuln", "intrusive", "exploit"}
 
+cpe = "cpe:2.3:a:drupal:drupal:*:*:*:*:*:*:*:*"
+
 portrule = shortport.http
 
 --- Appends a new multipart/form-data part to a table

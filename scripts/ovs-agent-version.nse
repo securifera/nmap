@@ -22,6 +22,8 @@ error.
 
 categories = {"version"}
 
+cpe = "cpe:2.3:a:oracle:virtual_server_agent:*:*:*:*:*:*:*:*"
+
 ---
 -- @output
 -- PORT     STATE SERVICE       REASON  VERSION

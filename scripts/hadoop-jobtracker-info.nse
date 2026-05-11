@@ -63,6 +63,8 @@ author = "John R. Bond"
 license = "Simplified (2-clause) BSD license--See https://nmap.org/svn/docs/licenses/BSD-simplified"
 categories = {"default", "discovery", "safe"}
 
+cpe = "cpe:2.3:a:apache:hadoop:*:*:*:*:*:*:*:*"
+
 
 portrule = function(host, port)
   -- Run for the special port number, or for any HTTP-like service that is

@@ -34,6 +34,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"brute", "intrusive"}
 
+cpe = "cpe:2.3:a:ietf:rlogin:*:*:*:*:*:*:*:*"
+
 portrule = shortport.port_or_service(513, "login", "tcp")
 
 -- The rlogin Driver, check the brute.lua documentation for more details

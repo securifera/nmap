@@ -68,6 +68,8 @@ author = "Piotr Olma"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive"}
 
+cpe = "cpe:2.3:a:ietf:http:*:*:*:*:*:*:*:*"
+
 local shortport = require 'shortport'
 local http = require 'http'
 local stdnse = require 'stdnse'

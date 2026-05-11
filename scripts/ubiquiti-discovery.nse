@@ -19,6 +19,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"default", "discovery", "version", "safe"}
 
+cpe = "cpe:2.3:a:ubiquiti:ubiquiti_discovery:*:*:*:*:*:*:*:*"
+
 ---
 -- @usage
 -- nmap -sU -p 10001 --script ubiquiti-discovery.nse <target>

@@ -39,6 +39,8 @@ author = {"Ron Bowes", "Jiayi Ye", "Paulino Calderon <calderon()websec.mx>"}
 copyright = "Ron Bowes"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive","exploit","dos","vuln"}
+
+cpe = "cpe:2.3:a:microsoft:windows:*:*:*:*:*:*:*:*"
 -- run after all smb-* scripts (so if it DOES crash something, it doesn't kill
 -- other scans have had a chance to run)
 dependencies = {

@@ -30,6 +30,8 @@ author = "George Chatzisofroniou"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe", "external", "discovery"}
 
+cpe = "cpe:2.3:a:xssed:xssed:*:*:*:*:*:*:*:*"
+
 local http = require "http"
 local nmap = require "nmap"
 local shortport = require "shortport"

@@ -40,6 +40,8 @@ authentication credentials (see also: informix-brute).
 author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"intrusive", "auth"}
+
+cpe = "cpe:2.3:a:ibm:informix:*:*:*:*:*:*:*:*"
 dependencies = { "informix-brute" }
 
 

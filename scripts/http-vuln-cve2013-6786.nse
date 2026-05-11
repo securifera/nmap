@@ -34,6 +34,8 @@ author = "Vlatko Kosturjak <kost@linux.hr>"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"exploit","vuln"}
 
+cpe = "cpe:2.3:a:allegrosoft:rompager:*:*:*:*:*:*:*:*"
+
 local http = require "http"
 local shortport = require "shortport"
 local vulns = require "vulns"

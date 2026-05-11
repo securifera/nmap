@@ -50,6 +50,8 @@ author = {"Stefan Eiwanger, DINA-community", "Andreas Galauner"}
 license = "BSD-2-Clause Plus Patent License. For further details, please refer https://spdx.org/licenses/BSD-2-Clause-Patent.html"
 categories = {"discovery","info", "safe", "broadcast"}
 
+cpe = "cpe:2.3:a:siemens:profinet:*:*:*:*:*:*:*:*"
+
 prerule = function()
   if not nmap.is_privileged() then
     stdnse.debug(1, "Nmap is NOT running as privileged.")

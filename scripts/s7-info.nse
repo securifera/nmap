@@ -20,6 +20,8 @@ author = "Stephen Hilt (Digital Bond)"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "version"}
 
+cpe = "cpe:2.3:a:siemens:s7:*:*:*:*:*:*:*:*"
+
 ---
 -- @usage
 -- nmap --script s7-info.nse -p 102 <host/s>

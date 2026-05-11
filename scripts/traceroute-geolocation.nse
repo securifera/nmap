@@ -68,6 +68,8 @@ author = "Patrik Karlsson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"safe", "external", "discovery"}
 
+cpe = "cpe:2.3:a:maxmind:geoip:*:*:*:*:*:*:*:*"
+
 local arg_kmlfile = stdnse.get_script_args(SCRIPT_NAME .. ".kmlfile")
 
 hostrule = function(host)

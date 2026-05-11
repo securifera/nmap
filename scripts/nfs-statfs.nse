@@ -40,6 +40,8 @@ the version used is NFSv3.
 author = {"Patrik Karlsson", "Djalal Harouni"}
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
+
+cpe = "cpe:2.3:a:ietf:nfs:*:*:*:*:*:*:*:*"
 dependencies = {"rpc-grind"}
 
 

@@ -48,6 +48,8 @@ license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 
 categories = {"discovery", "safe", "broadcast"}
 
+cpe = "cpe:2.3:a:microsoft:llmnr:*:*:*:*:*:*:*:*"
+
 
 --- Returns a raw llmnr query
 -- @param hostname Hostname to query for.
