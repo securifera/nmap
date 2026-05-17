@@ -589,14 +589,15 @@ struct nse_openssl_state {
 static int nse_openssl_gc(lua_State *L) {
   nse_openssl_state *state = (nse_openssl_state *) luaL_checkudata(L, 1, "NSE_OPENSSL_STATE");
 #if OPENSSL_VERSION_NUMBER >= 0x30000000L
-  if (state->legacy_provider) {
-    OSSL_PROVIDER_unload(state->legacy_provider);
-    state->legacy_provider = NULL;
-  }
-  if (state->default_provider) {
-    OSSL_PROVIDER_unload(state->default_provider);
-    state->default_provider = NULL;
-  }
+  // Do NOT call OSSL_PROVIDER_unload here. This __gc handler fires when
+  // the userdata is collected, which in practice only happens during
+  // lua_close at process shutdown — and by that point OpenSSL's own
+  // atexit handler has already deinitialised libcrypto. Calling
+  // OSSL_PROVIDER_unload on a torn-down OpenSSL crashes inside
+  // CRYPTO_THREAD_read_lock(NULL). Provider memory is reclaimed by the
+  // OS on exit, so the unload is unnecessary; the previous code only
+  // existed for symmetry with create_openssl_state.
+  (void)state;
 #endif
   return 0;
 }

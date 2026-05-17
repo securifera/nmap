@@ -2646,11 +2646,23 @@ static int nmap_fetchfile_userdir(char *buf, size_t buflen, const char *file) {
 static int nmap_fetchfile_userdir_uid(char *buf, size_t buflen, const char *file, int uid) {
   struct passwd *pw;
   int res;
+  const char *home = NULL;
 
-  pw = getpwuid(uid);
-  if (pw == NULL)
-    return 0;
-  res = Snprintf(buf, buflen, "%s/.nmap/%s", pw->pw_dir, file);
+  // Avoid getpwuid in static-glibc builds: getpwuid → libnss_files.so
+  // (dlopen) which crashes with SIGSEGV when the binary is fully-static.
+  // For the current uid only, $HOME is set by the shell/login and is safe
+  // without an NSS lookup. Fall through to getpwuid only when $HOME is
+  // unset OR when looking up a different uid than the current process.
+  if (uid == (int) getuid()) {
+    home = getenv("HOME");
+  }
+  if (home == NULL) {
+    pw = getpwuid(uid);
+    if (pw == NULL)
+      return 0;
+    home = pw->pw_dir;
+  }
+  res = Snprintf(buf, buflen, "%s/.nmap/%s", home, file);
   if (res <= 0 || (size_t) res >= buflen)
     return 0;
 
